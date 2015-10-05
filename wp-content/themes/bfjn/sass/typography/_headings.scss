@@ -1,0 +1,44 @@
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+}
+
+h1 {
+  font-family: $qu;
+  font-size: em(50);
+  color: $blue;
+  font-weight: normal;
+  .special {
+    color: white;
+    font-weight: bold;
+    font-size: em(36);
+  }
+}
+
+h2 {
+  font-family: $qu;
+  font-size: em(32);
+  color: $blue;
+  font-weight: normal; 
+}
+
+h3 {
+  font-family: $treb;
+  font-size: em(22);
+  color: $grey;
+  font-weight: bold;
+}
+
+h4 {
+  font-family: $treb;
+  font-size: em(18);
+  color: $grey;
+  font-weight: bold;
+}
+
+
+
+
+
+hr {
+  border-bottom: 1px $grey dotted;
+}

@@ -1,0 +1,18 @@
+.main-navigation {  
+  margin-top: em(10);
+}
+
+
+.site-title {
+    margin: 0;
+}
+
+.site-title img {
+  @include span-columns (2);
+  margin-left: 9%;
+
+}
+
+.site-description {
+  display: none;
+}
