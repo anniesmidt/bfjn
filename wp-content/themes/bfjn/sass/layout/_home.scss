@@ -82,44 +82,91 @@
 #home-offer {
   background-color: $blue;
   padding-top: 10px;
+  overflow: auto;
+  min-height: 200px;
 }
 
+
 h1.home-offer-title {
-  display: inline;
+  display: inline-block;
   color: white;
   font-family: $qu;
   font-size: em(40);
   margin-left: 9%;
   margin-top: 10px;
+  margin-bottom: 0;
+  
+
 }
 
-#home-offer p{
+.home-offer-description {
+  display: inline-block;
   color: white;
   font-family: $treb;
   font-size: em(20);
-  margin-left: 9%;
-  margin-top: 0;
-  margin-right: 45%;
+  margin: 0;
   line-height: 36px;
   padding-bottom: em(22);
+  width: 45%;
+  margin-left: 9%;
   a {
     text-decoration: none;
   }
 }
 
-.home-offer-description {
-
+.home-offer-description p {
+  color: white;
+  margin: 0;
 }
 
 
 
 
+//mailchimp form
+#mc_embed_signup {
+    display: inline-block;
+  background: none;
+  width: 350px;
+  float: right;
+  margin-right: 15%;
+}
+
+#mc_embed_signup h2 {
+  color: white;
+  font-family: $rob;
+  font-weight: normal;
+  letter-spacing: .1em;
+}
 
 
+#mc_embed_signup .mc-field-group label {
+  display: none !important;
+}
+
+#mc_embed_signup div.mce_inline_error {
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: transparent !important;
+    font-weight: normal !important;
+}
+
+#mc_embed_signup #mce-success-response {
+    color: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
 
 
+#mc_embed_signup div#mce-responses {
+    padding: 0 !important;
+    width: 100% !important;
+    margin: 0 0 3% 3% !important;
+}
 
 
+#mc_embed_signup div.response {
+    width: 95% !important;
+}
 
 
 
