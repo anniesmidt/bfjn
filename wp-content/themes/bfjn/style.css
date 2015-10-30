@@ -945,12 +945,15 @@ h1.home-offer-title {
   border: none;
   background: white;
   border-radius: 10px;
-  font-family: "Quicksand", sans-serif;
-  font-size: 1.875em;
-  width: 25%;
+  width: 20%;
   margin-right: 2%;
-  padding: 8px;
-  line-height: 1em; }
+  margin-bottom: 2%;
+  padding: 8px; }
+
+a .wpupg-post-title {
+  font-family: "Quicksand", sans-serif !important;
+  font-size: 1.875em !important;
+  line-height: 1.2em !important; }
 
 /*--------------------------------------------------------------
 ## Footer

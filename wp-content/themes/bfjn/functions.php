@@ -131,26 +131,6 @@ add_action( 'init', 'bfjn_post_type_1' );
 
 
 
-/*allows you to style the WP Ultimate Grid tiles with CSS*/
-function wpupg_custom_template( $output, $template, $post, $classes ) {
-    ob_start();
-    ?>
- 
-<div id="wpupg-container-post-<?php echo $post->ID; ?>" data-permalink="<?php echo get_post_permalink( $post->ID ); ?>" class="<?php echo implode( ' ', $classes ); ?>">
-       
-       <?php echo "test" ?>
-       
-    </div>
- 
-    <?php
-    $output = ob_get_contents();
-    ob_end_clean();
- 
-    return $output;
-
-}
-add_filter( 'wpupg_output_grid_html', 'wpupg_custom_template', 10, 4 );
-
 
 
 
