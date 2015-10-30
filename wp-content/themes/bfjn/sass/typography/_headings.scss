@@ -7,12 +7,31 @@ h1 {
   font-size: em(50);
   color: $blue;
   font-weight: normal;
-  .special {
+  margin-left: 10%
+}
+
+h1.white {
+  font-family: $qu;
+  font-size: em(36);
+  color: white;
+  font-weight: normal;
+  padding-left: 10%;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+h1.learn {
+  background-color: $brown;
+}
+
+h1.special {
+    font-family: $qu;
     color: white;
     font-weight: bold;
     font-size: em(36);
   }
-}
+
+
 
 h2 {
   font-family: $qu;

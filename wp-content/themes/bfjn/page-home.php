@@ -23,9 +23,9 @@ get_header(); ?>
 				?>
 		
 			<div id="CTA">
-			<button type="button" class="learn-button">Learn</button>
-			<button type="button" class="act-button">Act</button>
-      <button type="button" class="give-button">Give</button>
+			<button type="button" class="learn-button"><a href="http://localhost/bfjn/learn/Learn">Learn</a></button>
+			<button type="button" class="act-button"><a href="http://localhost/bfjn/learn/Act">Act</a></button>
+      <button type="button" class="give-button"><a href="http://localhost/bfjn/learn/Give">Give</a></button>
 			</div><!--cta-->
 			
 			<?php endwhile; // End of the loop. ?>	
@@ -33,7 +33,7 @@ get_header(); ?>
 	</div><!-- #primary -->
 
 
-<div id="home-offer">
+<section id="home-offer">
 
     <h1 class="home-offer-title"><?php the_field('home_offer_title'); ?></h1>
     
@@ -44,7 +44,7 @@ get_header(); ?>
 <div id="mc_embed_signup">
 <form action="//bostonfaithjustice.us5.list-manage.com/subscribe/post?u=a3af660228b6703660ad6b68e&amp;id=ae8b1fd6cb" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
     <div id="mc_embed_signup_scroll">
-	<h2>Get your free download</h2>
+	<h2><span class="fa fa-file-pdf-o"></span>&nbsp;Get your free download</h2>
 <div class="mc-field-group">
 	<label for="mce-EMAIL">Email Address </label>
 	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="email">
@@ -69,25 +69,37 @@ get_header(); ?>
 <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='MMERGE3';ftypes[3]='text';fnames[4]='MMERGE4';ftypes[4]='text';fnames[5]='MMERGE5';ftypes[5]='text';fnames[6]='MMERGE6';ftypes[6]='phone';fnames[7]='MMERGE7';ftypes[7]='phone';fnames[8]='MMERGE8';ftypes[8]='address';fnames[9]='MMERGE9';ftypes[9]='text';fnames[10]='MMERGE10';ftypes[10]='text';fnames[11]='MMERGE11';ftypes[11]='text';fnames[12]='MMERGE12';ftypes[12]='text';fnames[13]='MMERGE13';ftypes[13]='text';fnames[14]='MMERGE14';ftypes[14]='text';fnames[15]='MMERGE15';ftypes[15]='text';fnames[16]='MMERGE16';ftypes[16]='text';fnames[17]='MMERGE17';ftypes[17]='text';fnames[18]='MMERGE18';ftypes[18]='text';fnames[19]='MMERGE19';ftypes[19]='text';fnames[20]='MMERGE20';ftypes[20]='text';fnames[21]='MMERGE21';ftypes[21]='text';fnames[22]='MMERGE22';ftypes[22]='text';fnames[23]='MMERGE23';ftypes[23]='text';fnames[24]='MMERGE24';ftypes[24]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
 <!--End mc_embed_signup-->
 
-    
-    
-    
-    
-    
-    <div class="home-offer-description"><?php the_field('home_offer_description'); ?></div>
+      
+    <div class="home-offer-description"><?php the_field('home_offer_description'); ?>
+    </div><!-- end home offer description -->
+
+</section><!-- end home offer section-->
+
+
+<!-- Case Study Section -->
+<section id="home-case-study">
+  <div class="case-study-title">Case Study: Lorem ipsum dolor sit amet
+  </div>
+  <figure class="case-study-diagram"><img src="http://localhost/bfjn/wp-content/uploads/2015/10/diagram-fpo.jpg"></figure>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</section><!-- end home case study-->
 
 
 
 
+<!-- About BFJN Section -->
+<section id="home-about-bfjn">
+  
+  <figure id="home-about-picture"><img src="http://localhost/bfjn/wp-content/uploads/2015/10/about-fpo.jpg"></figure>
+  
+  <div class="home-about-text">
+    <div class="home-about-title">About BFJN</div>
+    <p>We’re a gathering of Christians from many different traditions sharing a common concern to love our neighbors through economic discipleship: following Jesus with our money.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
 
-
-
-
-
-
-</div>
-
-
+</section>
 
 
 

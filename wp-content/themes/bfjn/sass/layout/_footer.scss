@@ -1,0 +1,74 @@
+footer {//flex parent
+  display: flex;
+  background: $grey;
+  align-items: center;
+  justify-content: center;
+}
+
+
+#footer-form {//flex child 1
+  padding-right: 20%;
+}
+
+#mc_embed_signup h2 {
+  font-weight: normal !important;
+}
+
+#mc_embed_signup .button.brown-button  {
+  color: white;
+  background: $brown;
+  border-radius: 10px;
+  font-size: 22px !important;
+  width: auto;
+  height: auto;
+  padding: 26px !important;
+  line-height: 0;
+  font-family: $rob;
+  font-weight: normal;
+  letter-spacing: .1em;
+  text-shadow: none;
+}
+
+#mc_embed_signup .button.brown-button:hover {
+  background-color: lighten($brown, 20%) !important;
+}
+
+
+#footer-social {//flex child 2
+  color: white;
+  font-size: em(50);
+  padding-right: 10px;
+}
+
+button.donate-button  {
+  color: white;
+  background: $orange;
+  border-radius: 10px;
+  font-size: 22px;
+  width: auto;
+  height: auto;
+  padding: 26px;
+  line-height: 0;
+  font-family: $rob;
+  font-weight: normal;
+  letter-spacing: .1em;
+  text-shadow: none;
+  border: none;
+  box-shadow: none;
+}
+
+button.donate-button:hover {
+  background-color: lighten($orange, 20%);
+}
+
+
+#footer-social .fa-envelope,
+#footer-social .fa-twitter, 
+#footer-social .fa-facebook {
+  padding-right: 30px;
+}
+
+
+
+
+

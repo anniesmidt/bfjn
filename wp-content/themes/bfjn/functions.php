@@ -117,6 +117,43 @@ add_filter('edit_post_link', 'bfjn_remove_edit_post_link');
 
 
 
+/* add Learn Tiles post type*/
+function bfjn_post_type_1() {
+    $args = array(
+      'public' => true,
+      'label'  => 'Learn tiles'
+    );
+    register_post_type( 'learn_tiles', $args );
+}
+add_action( 'init', 'bfjn_post_type_1' );
+
+
+
+
+
+/*allows you to style the WP Ultimate Grid tiles with CSS*/
+function wpupg_custom_template( $output, $template, $post, $classes ) {
+    ob_start();
+    ?>
+ 
+<div id="wpupg-container-post-<?php echo $post->ID; ?>" data-permalink="<?php echo get_post_permalink( $post->ID ); ?>" class="<?php echo implode( ' ', $classes ); ?>">
+       
+       <?php echo "test" ?>
+       
+    </div>
+ 
+    <?php
+    $output = ob_get_contents();
+    ob_end_clean();
+ 
+    return $output;
+
+}
+add_filter( 'wpupg_output_grid_html', 'wpupg_custom_template', 10, 4 );
+
+
+
+
 
 
 
@@ -153,7 +190,8 @@ wp_enqueue_style( 'bfjn-google-fonts', 'https://fonts.googleapis.com/css?family=
 
 add_action( 'wp_enqueue_scripts', 'bfjn_add_google_fonts' );
  
- 
+
+	wp_enqueue_style( 'bfjn-fontawesome', 'http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' ); 
  
  
 function bfjn_scripts() {

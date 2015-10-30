@@ -24,3 +24,19 @@ input[type="submit"] {
 		box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
 	}
 }
+
+
+.brown-button  {
+  color: white;
+  background: $brown;
+  border-radius: 10px;
+  font-size: 22px !important;
+  width: auto;
+  height: auto;
+  padding: 26px !important;
+  line-height: 0;
+  font-family: $rob;
+  font-weight: normal;
+  letter-spacing: .1em;
+  text-shadow: none;
+}

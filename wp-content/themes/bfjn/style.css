@@ -267,11 +267,26 @@ h1 {
   font-family: "Quicksand", sans-serif;
   font-size: 3.125em;
   color: #00A79B;
-  font-weight: normal; }
-  h1 .special {
-    color: white;
-    font-weight: bold;
-    font-size: 2.25em; }
+  font-weight: normal;
+  margin-left: 10%; }
+
+h1.white {
+  font-family: "Quicksand", sans-serif;
+  font-size: 2.25em;
+  color: white;
+  font-weight: normal;
+  padding-left: 10%;
+  text-transform: uppercase;
+  margin: 0; }
+
+h1.learn {
+  background-color: #978475; }
+
+h1.special {
+  font-family: "Quicksand", sans-serif;
+  color: white;
+  font-weight: bold;
+  font-size: 2.25em; }
 
 h2 {
   font-family: "Quicksand", sans-serif;
@@ -425,6 +440,20 @@ input[type="submit"] {
   input[type="submit"]:focus {
     border-color: none;
     box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15); }
+
+.brown-button {
+  color: white;
+  background: #978475;
+  border-radius: 10px;
+  font-size: 22px !important;
+  width: auto;
+  height: auto;
+  padding: 26px !important;
+  line-height: 0;
+  font-family: "Roboto Slab", serif;
+  font-weight: normal;
+  letter-spacing: .1em;
+  text-shadow: none; }
 
 input[type="text"],
 input[type="email"],
@@ -735,12 +764,13 @@ a {
   box-shadow: none;
   margin-right: 50px; }
 
-.learn-button, .act-button, .give-button {
+.learn-button a, .act-button a, .give-button a {
   font-size: 50px;
   color: white;
   font-family: "Quicksand", sans-serif;
   text-transform: uppercase;
-  padding: 0; }
+  padding: 0;
+  text-decoration: none; }
 
 .learn-button {
   background-color: #978475; }
@@ -826,6 +856,162 @@ h1.home-offer-title {
 
 #mc_embed_signup div.response {
   width: 95% !important; }
+
+#mc_embed_signup .button {
+  background: #978475 !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 8px !important;
+  font-family: "Roboto Slab", serif !important;
+  font-size: 1.75em !important;
+  font-weight: normal !important;
+  letter-spacing: .1em !important;
+  text-shadow: none !important;
+  padding: 24px !important;
+  line-height: 0px !important;
+  float: right; }
+
+#home-case-study {
+  display: flex;
+  flex-direction: column;
+  height: auto; }
+
+.case-study-title, .case-study-diagram, #home-case-study p {
+  margin: auto; }
+
+.case-study-title {
+  color: #00A79B;
+  font-family: "Roboto Slab", serif;
+  font-size: 2.25em;
+  margin-top: 1.875em;
+  margin-bottom: 0.3125em; }
+
+.case-study-diagram {
+  padding-bottom: 2em; }
+
+#home-case-study p {
+  width: 75%;
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 1.25em;
+  line-height: 2.125em;
+  padding-bottom: 2.25em; }
+
+#home-about-bfjn {
+  background: #B0CE69;
+  display: flex; }
+
+#home-about-picture {
+  margin-top: 4.375em;
+  width: 300px;
+  margin-right: 5%;
+  margin-left: 10%; }
+
+#home-about-picture img {
+  border-radius: 50%; }
+
+.home-about-text {
+  width: 675px;
+  margin-top: 4.375em; }
+
+.home-about-title {
+  color: white;
+  font-family: "Roboto Slab", serif;
+  font-size: 2.25em; }
+
+#home-about-bfjn p {
+  color: white;
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 1.25em;
+  line-height: 2.125em; }
+
+/*--------------------------------------------------------------
+## Learn
+--------------------------------------------------------------*/
+.pattern {
+  background-image: url(http://localhost/bfjn/wp-content/uploads/2015/10/dotpattern4.png);
+  background-repeat: repeat;
+  height: 160px;
+  margin-top: -147px; }
+
+.page-id-6 .site-content {
+  background-color: #00A79B;
+  margin: 0; }
+
+.wpupg-grid {
+  margin: 0 auto;
+  width: 80%; }
+
+.wpupg-item {
+  border: none;
+  background: white;
+  border-radius: 10px;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.875em;
+  width: 25%;
+  margin-right: 2%;
+  padding: 8px;
+  line-height: 1em; }
+
+/*--------------------------------------------------------------
+## Footer
+--------------------------------------------------------------*/
+footer {
+  display: flex;
+  background: #808080;
+  align-items: center;
+  justify-content: center; }
+
+#footer-form {
+  padding-right: 20%; }
+
+#mc_embed_signup h2 {
+  font-weight: normal !important; }
+
+#mc_embed_signup .button.brown-button {
+  color: white;
+  background: #978475;
+  border-radius: 10px;
+  font-size: 22px !important;
+  width: auto;
+  height: auto;
+  padding: 26px !important;
+  line-height: 0;
+  font-family: "Roboto Slab", serif;
+  font-weight: normal;
+  letter-spacing: .1em;
+  text-shadow: none; }
+
+#mc_embed_signup .button.brown-button:hover {
+  background-color: #c3b8af !important; }
+
+#footer-social {
+  color: white;
+  font-size: 3.125em;
+  padding-right: 10px; }
+
+button.donate-button {
+  color: white;
+  background: #FF911E;
+  border-radius: 10px;
+  font-size: 22px;
+  width: auto;
+  height: auto;
+  padding: 26px;
+  line-height: 0;
+  font-family: "Roboto Slab", serif;
+  font-weight: normal;
+  letter-spacing: .1em;
+  text-shadow: none;
+  border: none;
+  box-shadow: none; }
+
+button.donate-button:hover {
+  background-color: #ffc384; }
+
+#footer-social .fa-envelope,
+#footer-social .fa-twitter,
+#footer-social .fa-facebook {
+  padding-right: 30px; }
 
 /*--------------------------------------------------------------
 # Infinite scroll
