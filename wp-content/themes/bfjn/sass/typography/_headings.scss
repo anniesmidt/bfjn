@@ -24,6 +24,16 @@ h1.learn {
   background-color: $brown;
 }
 
+h1.act {
+  background-color: $blue;
+}
+
+
+h1.give {
+  background-color: $green;
+}
+
+
 h1.special {
     font-family: $qu;
     color: white;
@@ -31,6 +41,15 @@ h1.special {
     font-size: em(36);
   }
 
+h1.special2 {
+    font-family: $rob;
+    color: white;
+    font-weight: normal;
+    font-size: em(36);
+    text-align: center;
+    margin-left: 3%;
+    margin-top: 50px;
+  }
 
 
 h2 {

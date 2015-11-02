@@ -128,7 +128,15 @@ function bfjn_post_type_1() {
 add_action( 'init', 'bfjn_post_type_1' );
 
 
-
+/* add Calendar Event post type*/
+function bfjn_post_type_2() {
+    $args = array(
+      'public' => true,
+      'label'  => 'Calendar event'
+    );
+    register_post_type( 'calendar_event', $args );
+}
+add_action( 'init', 'bfjn_post_type_2' );
 
 
 

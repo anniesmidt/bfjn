@@ -1,0 +1,167 @@
+.pattern {//learn
+  background-image: url(http://localhost/bfjn/wp-content/uploads/2015/10/dotpattern4.png);
+  background-repeat: repeat;
+  height: 160px;
+  margin-top: -147px;
+}
+
+
+.pattern2 {//act
+  background-image: url(http://localhost/bfjn/wp-content/uploads/2015/10/spotpattern.png);
+  background-repeat: repeat;
+  height: 160px;
+  margin-top: -147px;
+}
+
+
+.pattern3 {//give
+  background-image: url(http://localhost/bfjn/wp-content/uploads/2015/10/spotpattern.png);
+  background-repeat: repeat;
+  height: 160px;
+  margin-top: -147px;
+}
+
+
+.page-id-6 .site-content {//learn
+  background-color: $blue;
+  margin: 0;
+}
+
+.page-id-8 .site-content {//act
+  background-color: $ltgreen;
+  margin: 0;
+}
+
+.page-id-10 .site-content {//give
+  background-color: $orange;
+  margin: 0;
+}
+
+
+
+
+
+////////LEARN specific styles///////////
+.wpupg-grid {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.wpupg-item  {
+  border: none;
+  background: white;
+  border-radius: 10px;
+  
+  width: 20%;
+  margin-right: 2%;
+  margin-bottom: 2%;
+  padding: 8px;
+  
+}
+
+a .wpupg-post-title  {
+  font-family: $qu !important;
+  font-size: em(30) !important;
+  line-height: 1.2em !important;
+}
+
+
+.wpupg-grid a:nth-child(2) {
+  color: $green;
+}
+
+.wpupg-grid a:nth-child(3) {
+  color: $blue;
+}
+
+.wpupg-grid a:nth-child(4) {
+  color: $brown;
+}
+
+
+
+////////ACT specific styles///////////
+
+#act-buttons-area {//flex container
+  display: flex;
+  -webkit-justify-content: space-around; /* Safari */
+  justify-content: space-around;
+  margin: 0 5%;
+}
+
+.act-buttons {
+  width: 210px;
+  height: 210px;
+  background: white;
+  border-radius: 50%; 
+  font-family: $rob;
+  font-size: 25px;
+}
+
+.act-button1 {
+  color: $green;
+  border: 5px $green solid;
+}
+
+.act-button1:hover {
+    color: white;
+    background: $green;
+  }
+
+
+.act-button2 {
+  color: $brown;
+  border: 5px $brown solid;
+}
+
+.act-button2:hover {
+    color: white;
+    background: $brown;
+  }
+
+
+.act-button3 {
+  color: $blue;
+  border: 5px $blue solid;
+}
+
+.act-button3:hover {
+    color: white;
+    background: $blue;
+  }
+
+
+.act-button4 {
+  color: $orange;
+  border: 5px $orange solid;
+}
+
+.act-button4:hover {
+    color: white;
+    background: $orange;
+  }
+
+
+//calendar section
+.month-holder  {
+  background: white;
+  border-radius: 15px;
+  margin: 0 10%;
+  padding: 0 10px;
+}
+
+h2.calendar-month {
+  color: $orange;
+  font-family: $qu;
+  letter-spacing: .1em;
+}
+
+
+
+
+
+
+////////GIVE specific styles///////////
+
+
+

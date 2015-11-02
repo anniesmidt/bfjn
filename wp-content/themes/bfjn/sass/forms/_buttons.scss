@@ -25,6 +25,10 @@ input[type="submit"] {
 	}
 }
 
+button:hover {
+    box-shadow: none;
+    text-shadow: none;
+}
 
 .brown-button  {
   color: white;
