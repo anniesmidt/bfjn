@@ -19,22 +19,20 @@
 	<div class="entry-content">
 		
 		<section id="act-buttons-area">
-      <button class="act-buttons act-button1">get educated</button>
-      <button class="act-buttons act-button2">give 
+      <button href="#" class="act-buttons act-button1">get educated</button>
+      <button href="#" class="act-buttons act-button2">give
 meaningfully</button>		
-      <button class="act-buttons act-button3">join with 
+      <button href="#" class="act-buttons act-button3">join with 
 others</button>
-      <button class="act-buttons act-button4">buy 
+      <button href="#" class="act-buttons act-button4">buy 
 ethically</button>
 		</section>
 		
 		
   <h1 class="special2">Events Calendar &raquo; Get involved.</h1>
 		
-		<section class="month-holder">
-		
+<section class="month-holder">		
   <?php
-  
   $posts = get_posts(array(
   	'numberposts' => -1,
   	'post_type' => 'calendar_event',
@@ -43,6 +41,7 @@ ethically</button>
     'orderby' => 'date',
     'order' => 'ASC'  	
   	  ));
+
   
   if($posts)
   {
@@ -58,25 +57,38 @@ ethically</button>
  
         <h2 class="calendar-month"><?php the_field('month'); ?></h2>
         <?php
-        
-        
-      }
-      
-       
+       }
+
       $previous_month = get_field('month');
-
-      ?>    
-
+      ?> 		
+   
       <h3 class="event-date"><?php echo bfjn_format_date (get_field('date')); ?></h3>
       <p class="event-name"><?php the_field('name'); ?></p>
-      <p class="event-description"><?php the_field('description');?></p>	
+      <p class="event-description"><?php the_field('description');?>
       
+      <br>
+             
+      <button href="<?php the_field('learn_more_URL'); ?>" class="calendar-learn-more">
+        learn more
+      </button>
       
+       <button href="<?php the_field('sign_up_URL'); ?>"class="calendar-sign-up">
+        sign up
+       </button>
+
+      </p>	
       
+   
+           
       <?php
+      
+////////need a loop here that checks if it's the last listing for the month and if it is add the closing tag for the section class month-holder///////
     }
   }
- 
+
+
+
+
  
   function bfjn_format_date($str) {
     $year = substr ($str, 0, 4);
@@ -85,8 +97,8 @@ ethically</button>
     
     $month_str = bfjn_convert_number_to_month_name($month);
     return $month_str . ' ' . $day;
-
     }
+    
     
    function bfjn_convert_number_to_month_name($num) {
      switch($num) {
@@ -137,38 +149,18 @@ ethically</button>
      case 12: 
         $month = 'December';
         break;
-
-      
-
      }
-
      return $month;
-     
    }  
-    
+
    
     
   
   ?>
 		
-		
-		
-		
-		
-		
-		
+</section>
 
 
-
-		
-		
-		
-		
-		
-		
-		</section>
-
-  		
 		
 		
 		<?php the_content(); ?>

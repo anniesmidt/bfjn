@@ -43,4 +43,17 @@ button:hover {
   font-weight: normal;
   letter-spacing: .1em;
   text-shadow: none;
+  box-shadow: none;
+  border: none;
 }
+
+.brown-button:hover {
+  background: lighten($brown, 20%);
+}
+
+
+
+a {
+  text-decoration: none;
+}
+

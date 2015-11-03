@@ -15,7 +15,7 @@
 
 
 .pattern3 {//give
-  background-image: url(http://localhost/bfjn/wp-content/uploads/2015/10/spotpattern.png);
+  background-image: url(http://localhost/bfjn/wp-content/uploads/2015/11/pattern32.jpg);
   background-repeat: repeat;
   height: 160px;
   margin-top: -147px;
@@ -98,15 +98,26 @@ a .wpupg-post-title  {
   font-size: 25px;
 }
 
-.act-button1 {
+.act-button1  {
   color: $green;
   border: 5px $green solid;
 }
 
-.act-button1:hover {
-    color: white;
-    background: $green;
+  
+    
+.act-button1 a:visited {
+    color: $green;
   }
+  
+.act-button1:hover {
+    background: $green;
+    color: white;
+  }
+
+
+.act-button1 a:hover { 
+    color: white;
+    }
 
 
 .act-button2 {
@@ -117,6 +128,10 @@ a .wpupg-post-title  {
 .act-button2:hover {
     color: white;
     background: $brown;
+  }
+
+.act-button2 a:visited {
+    color: $brown;
   }
 
 
@@ -131,6 +146,10 @@ a .wpupg-post-title  {
   }
 
 
+.act-button3 a:visited {
+    color: $blue;
+  }
+
 .act-button4 {
   color: $orange;
   border: 5px $orange solid;
@@ -141,7 +160,12 @@ a .wpupg-post-title  {
     background: $orange;
   }
 
-
+.act-button4 a:visited {
+    color: $orange;
+  }
+  
+  
+  
 //calendar section
 .month-holder  {
   background: white;
@@ -154,14 +178,75 @@ h2.calendar-month {
   color: $orange;
   font-family: $qu;
   letter-spacing: .1em;
+  margin-left: 10px;
+  margin-bottom: 0;
+  padding-top: 10px;
+}
+
+h3.event-date {
+  font-family: $treb;
+  font-size: em(18);
+  font-weight: bold;
+  margin: 0 0 0 10px;
+}
+
+p.event-name, p.event-description {
+  font-weight: normal;
+  margin: 0 0 0 10px;
+}
+
+p.event-description {
+  border-bottom: 1px $grey dashed;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+p.event-description:last-child {
+  border-bottom: none;
+}
+
+p.event-description button {
+  border: none;
+  box-shadow: none;
+  text-shadow: none;
+  color: white;
+  border-radius: 5px;
+  font-family: $rob;
+  line-height: 0;
+  padding: 18px 10px;
+  font-size: em(16);
+  margin-top: 10px; 
+}
+
+p.event-description button.calendar-sign-up {
+  background: $ltgreen;
+  margin-left: 10px;
 }
 
 
-
-
-
+.event-description button.calendar-learn-more:hover{
+  background-color: lighten($brown, 20%);
+  }
+  
+.event-description button.calendar-sign-up:hover{
+  background-color: lighten($ltgreen, 20%);
+  }  
 
 ////////GIVE specific styles///////////
 
+.big-text-container {
+  display: flex;
+  margin: 0 10%;
+}
 
+.big-text p {
+  font-family: $rob;
+  font-size: em(36);
+  color: white;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
 
+.vet-button {
+  float: right;
+}
