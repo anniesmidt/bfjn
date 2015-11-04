@@ -15,6 +15,7 @@
 		<?php the_title( '<h1 class="entry-title white act">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
+
   <div class="big-text-container"><!-- flex parent -->
   	<div class="entry-content big-text">	
 		<?php the_content(); ?>
@@ -23,7 +24,35 @@
   </div>
 
   <h1 class="special2">Places to Give &raquo; Vetted by BFJN.</h1>
+		<section class="non-profit-holder">
 		
+<?php
+$posts = get_posts(array(
+	'numberposts' => -1,
+	'post_type' => 'organizations'
+));
+
+if($posts)
+{
+	foreach($posts as $post)
+	{
+		echo '<h2 class="organization-type">' .
+		  get_field(organization_type) . '</h2>' .
+		  
+		  '<p class="organization-name"><a href="#" target="_blank">' .
+		  get_field(organization_name) . '</a></p>' .
+		  
+		  '<p class="organization-description">' .
+		  get_field(organization_description) . 
+		  '</p>';
+
+	}
+
+}
+
+?>
+		
+		</section>
 
 		
 		

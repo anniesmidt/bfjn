@@ -139,6 +139,15 @@ function bfjn_post_type_2() {
 add_action( 'init', 'bfjn_post_type_2' );
 
 
+/* add Vetted Organizations post type*/
+function bfjn_post_type_3() {
+    $args = array(
+      'public' => true,
+      'label'  => 'Organizations'
+    );
+    register_post_type( 'organizations', $args );
+}
+add_action( 'init', 'bfjn_post_type_3' );
 
 
 

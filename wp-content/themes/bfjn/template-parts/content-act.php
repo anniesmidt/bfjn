@@ -83,6 +83,8 @@ ethically</button>
       <?php
       
 ////////need a loop here that checks if it's the last listing for the month and if it is add the closing tag for the section class month-holder///////
+
+//////refactor using repeater fields http://www.advancedcustomfields.com/resources/repeater//////
     }
   }
 
