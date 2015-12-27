@@ -1,0 +1,38 @@
+.general-pages  {
+  width: 60%;
+}
+
+.general-pages .entry-content {
+  margin-left: 15%;
+}
+
+
+.general-pages p {
+  margin-top: 0;
+}
+
+.general-pages .entry-content {
+  margin-top: 0;
+}
+
+.general-pages ul li {
+    color: #808080;
+    font-size: 1.125em;
+}
+
+.content-area {
+	float: left;
+	margin: 0 (-$size__site-sidebar) 0 0;
+	width: $size__site-main;
+}
+
+
+.site-content .widget-area {
+	float: right;
+	overflow: hidden;
+	width: $size__site-sidebar;
+}
+
+#idbal16 {
+  border: 1px $blue solid;
+}

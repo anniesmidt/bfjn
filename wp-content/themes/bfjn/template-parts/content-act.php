@@ -32,7 +32,14 @@ ethically</button>
   <h1 class="special2">Events Calendar &raquo; Get involved.</h1>
 		
 <section class="month-holder">		
-  <?php
+
+
+
+
+
+
+ <!--
+ <?php
   $posts = get_posts(array(
   	'numberposts' => -1,
   	'post_type' => 'calendar_event',
@@ -159,6 +166,7 @@ ethically</button>
     
   
   ?>
+-->
 		
 </section>
 

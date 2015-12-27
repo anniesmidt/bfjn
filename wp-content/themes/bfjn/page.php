@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying the home page.
+ * The template for displaying non-specialized pages.
  *
  *
  * @package bfjn
@@ -27,5 +27,5 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
+<?php get_sidebar(); ?><!-- gets the default sidebar.php -->
 <?php get_footer(); ?>

@@ -7,7 +7,7 @@ h1 {
   font-size: em(50);
   color: $blue;
   font-weight: normal;
-  margin-left: 10%
+  margin-left: 15%
 }
 
 h1.white {
@@ -50,6 +50,10 @@ h1.special2 {
     margin-left: 3%;
     margin-top: 50px;
   }
+  
+.general-pages h1 {
+  margin-bottom: 0;
+}  
 
 
 h2 {
@@ -59,11 +63,26 @@ h2 {
   font-weight: normal; 
 }
 
+
+.general-pages h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+
+}
+
 h3 {
   font-family: $treb;
   font-size: em(22);
   color: $grey;
   font-weight: bold;
+}
+
+.general-pages h3 {
+  margin: 0;
+  color: $blue;
+  font-size: em(20);
+
+  
 }
 
 h4 {
@@ -74,7 +93,9 @@ h4 {
 }
 
 
-
+.general-pages h4 {
+  margin-bottom: 0;
+}
 
 
 hr {

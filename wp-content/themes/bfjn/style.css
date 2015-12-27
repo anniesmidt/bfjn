@@ -48,25 +48,6 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
-body:before {
-  background-image: -webkit-linear-gradient(left, transparent 0, #eee 0, #eee 6.74772%, transparent 6.74772%, transparent 9.32523%, #eee 9.32523%, #eee 16.07295%, transparent 16.07295%, transparent 18.65046%, #eee 18.65046%, #eee 25.39818%, transparent 25.39818%, transparent 27.97568%, #eee 27.97568%, #eee 34.7234%, transparent 34.7234%, transparent 37.30091%, #eee 37.30091%, #eee 44.04863%, transparent 44.04863%, transparent 46.62614%, #eee 46.62614%, #eee 53.37386%, transparent 53.37386%, transparent 55.95137%, #eee 55.95137%, #eee 62.69909%, transparent 62.69909%, transparent 65.2766%, #eee 65.2766%, #eee 72.02432%, transparent 72.02432%, transparent 74.60182%, #eee 74.60182%, #eee 81.34954%, transparent 81.34954%, transparent 83.92705%, #eee 83.92705%, #eee 90.67477%, transparent 90.67477%, transparent 93.25228%, #eee 93.25228%, #eee 100%, transparent 100%);
-  background-image: -moz-linear-gradient(left, transparent 0, #eee 0, #eee 6.74772%, transparent 6.74772%, transparent 9.32523%, #eee 9.32523%, #eee 16.07295%, transparent 16.07295%, transparent 18.65046%, #eee 18.65046%, #eee 25.39818%, transparent 25.39818%, transparent 27.97568%, #eee 27.97568%, #eee 34.7234%, transparent 34.7234%, transparent 37.30091%, #eee 37.30091%, #eee 44.04863%, transparent 44.04863%, transparent 46.62614%, #eee 46.62614%, #eee 53.37386%, transparent 53.37386%, transparent 55.95137%, #eee 55.95137%, #eee 62.69909%, transparent 62.69909%, transparent 65.2766%, #eee 65.2766%, #eee 72.02432%, transparent 72.02432%, transparent 74.60182%, #eee 74.60182%, #eee 81.34954%, transparent 81.34954%, transparent 83.92705%, #eee 83.92705%, #eee 90.67477%, transparent 90.67477%, transparent 93.25228%, #eee 93.25228%, #eee 100%, transparent 100%);
-  background-image: -ms-linear-gradient(left, transparent 0, #eee 0, #eee 6.74772%, transparent 6.74772%, transparent 9.32523%, #eee 9.32523%, #eee 16.07295%, transparent 16.07295%, transparent 18.65046%, #eee 18.65046%, #eee 25.39818%, transparent 25.39818%, transparent 27.97568%, #eee 27.97568%, #eee 34.7234%, transparent 34.7234%, transparent 37.30091%, #eee 37.30091%, #eee 44.04863%, transparent 44.04863%, transparent 46.62614%, #eee 46.62614%, #eee 53.37386%, transparent 53.37386%, transparent 55.95137%, #eee 55.95137%, #eee 62.69909%, transparent 62.69909%, transparent 65.2766%, #eee 65.2766%, #eee 72.02432%, transparent 72.02432%, transparent 74.60182%, #eee 74.60182%, #eee 81.34954%, transparent 81.34954%, transparent 83.92705%, #eee 83.92705%, #eee 90.67477%, transparent 90.67477%, transparent 93.25228%, #eee 93.25228%, #eee 100%, transparent 100%);
-  background-image: -o-linear-gradient(left, transparent 0, #eee 0, #eee 6.74772%, transparent 6.74772%, transparent 9.32523%, #eee 9.32523%, #eee 16.07295%, transparent 16.07295%, transparent 18.65046%, #eee 18.65046%, #eee 25.39818%, transparent 25.39818%, transparent 27.97568%, #eee 27.97568%, #eee 34.7234%, transparent 34.7234%, transparent 37.30091%, #eee 37.30091%, #eee 44.04863%, transparent 44.04863%, transparent 46.62614%, #eee 46.62614%, #eee 53.37386%, transparent 53.37386%, transparent 55.95137%, #eee 55.95137%, #eee 62.69909%, transparent 62.69909%, transparent 65.2766%, #eee 65.2766%, #eee 72.02432%, transparent 72.02432%, transparent 74.60182%, #eee 74.60182%, #eee 81.34954%, transparent 81.34954%, transparent 83.92705%, #eee 83.92705%, #eee 90.67477%, transparent 90.67477%, transparent 93.25228%, #eee 93.25228%, #eee 100%, transparent 100%);
-  background-image: linear-gradient(to left, transparent 0, #eee 0, #eee 6.74772%, transparent 6.74772%, transparent 9.32523%, #eee 9.32523%, #eee 16.07295%, transparent 16.07295%, transparent 18.65046%, #eee 18.65046%, #eee 25.39818%, transparent 25.39818%, transparent 27.97568%, #eee 27.97568%, #eee 34.7234%, transparent 34.7234%, transparent 37.30091%, #eee 37.30091%, #eee 44.04863%, transparent 44.04863%, transparent 46.62614%, #eee 46.62614%, #eee 53.37386%, transparent 53.37386%, transparent 55.95137%, #eee 55.95137%, #eee 62.69909%, transparent 62.69909%, transparent 65.2766%, #eee 65.2766%, #eee 72.02432%, transparent 72.02432%, transparent 74.60182%, #eee 74.60182%, #eee 81.34954%, transparent 81.34954%, transparent 83.92705%, #eee 83.92705%, #eee 90.67477%, transparent 90.67477%, transparent 93.25228%, #eee 93.25228%, #eee 100%, transparent 100%);
-  content: "";
-  display: inline-block;
-  height: 100%;
-  left: 0;
-  margin: 0 auto;
-  max-width: 125em;
-  opacity: 0.1;
-  pointer-events: none;
-  position: fixed;
-  right: 0;
-  width: 100%;
-  z-index: -1; }
-
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
@@ -268,7 +249,7 @@ h1 {
   font-size: 3.125em;
   color: #00A79B;
   font-weight: normal;
-  margin-left: 10%; }
+  margin-left: 15%; }
 
 h1.white {
   font-family: "Quicksand", sans-serif;
@@ -303,11 +284,18 @@ h1.special2 {
   margin-left: 3%;
   margin-top: 50px; }
 
+.general-pages h1 {
+  margin-bottom: 0; }
+
 h2 {
   font-family: "Quicksand", sans-serif;
   font-size: 2em;
   color: #00A79B;
   font-weight: normal; }
+
+.general-pages h2 {
+  margin-top: 0;
+  margin-bottom: 0; }
 
 h3 {
   font-family: "Trebuchet MS", sans-serif;
@@ -315,11 +303,19 @@ h3 {
   color: #808080;
   font-weight: bold; }
 
+.general-pages h3 {
+  margin: 0;
+  color: #00A79B;
+  font-size: 1.25em; }
+
 h4 {
   font-family: "Trebuchet MS", sans-serif;
   font-size: 1.125em;
   color: #808080;
   font-weight: bold; }
+
+.general-pages h4 {
+  margin-bottom: 0; }
 
 hr {
   border-bottom: 1px #808080 dotted; }
@@ -754,6 +750,38 @@ a {
 
 .site-description {
   display: none; }
+
+/*--------------------------------------------------------------
+## General pages
+--------------------------------------------------------------*/
+.general-pages {
+  width: 60%; }
+
+.general-pages .entry-content {
+  margin-left: 15%; }
+
+.general-pages p {
+  margin-top: 0; }
+
+.general-pages .entry-content {
+  margin-top: 0; }
+
+.general-pages ul li {
+  color: #808080;
+  font-size: 1.125em; }
+
+.content-area {
+  float: left;
+  margin: 0 -25% 0 0;
+  width: 100%; }
+
+.site-content .widget-area {
+  float: right;
+  overflow: hidden;
+  width: 25%; }
+
+#idbal16 {
+  border: 1px #00A79B solid; }
 
 /*--------------------------------------------------------------
 ## Home
