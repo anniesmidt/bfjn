@@ -28,9 +28,15 @@ class WPUPG_Template_Post_Image extends WPUPG_Template_Block {
         if( !$this->output_block( $post, $args ) ) return '';
         if( !isset( $this->thumbnail ) ) $this->thumbnail = 'full';
 
-        $post_image_id = get_post_thumbnail_id( $post->ID );
-        $thumb = wp_get_attachment_image_src( $post_image_id, $this->thumbnail );
+        // Post Image ID
+        $custom_image_id = get_post_meta( $post->ID, 'wpupg_custom_image_id', true );
+        if( $custom_image_id && get_post_type( $custom_image_id ) == 'attachment' ) {
+            $post_image_id = $custom_image_id;
+        } else {
+            $post_image_id = $post->post_type == 'attachment' ? $post->ID : get_post_thumbnail_id( $post->ID );
+        }
 
+        $thumb = $this->get_thumb( $post->ID, $post_image_id, $this->thumbnail );
         if(!$thumb) return ''; // No recipe image found
 
         $image_url = $thumb[0];
@@ -61,7 +67,7 @@ class WPUPG_Template_Post_Image extends WPUPG_Template_Block {
                 $undistored_height
             );
 
-            $thumb = wp_get_attachment_image_src( $post_image_id, $correct_thumb );
+            $thumb = $this->get_thumb( $post->ID, $post_image_id, $correct_thumb );
             $image_url = $thumb[0];
 
             // Cropping the image
@@ -85,7 +91,7 @@ class WPUPG_Template_Post_Image extends WPUPG_Template_Block {
                         $new_height
                     );
 
-                    $thumb = wp_get_attachment_image_src( $post_image_id, $larger_thumb );
+                    $thumb = $this->get_thumb( $post->ID, $post_image_id, $larger_thumb );
                     $image_url = $thumb[0];
 
                     $margin = ( $new_width - $larger_width ) / 2;
@@ -104,7 +110,7 @@ class WPUPG_Template_Post_Image extends WPUPG_Template_Block {
                 $args['max_height']
             );
 
-            $thumb = wp_get_attachment_image_src( $post_image_id, $correct_thumb );
+            $thumb = $this->get_thumb( $post->ID, $post_image_id, $correct_thumb );
             $image_url = $thumb[0];
         }
 
@@ -122,5 +128,24 @@ class WPUPG_Template_Post_Image extends WPUPG_Template_Block {
         ob_end_clean();
 
         return $this->after_output( $output, $post );
+    }
+
+    private function get_thumb( $post_id, $image_id, $size )
+    {
+        $custom_image_url = get_post_meta( $post_id, 'wpupg_custom_image', true );
+        $custom_image_size = $custom_image_url ? @getimagesize( $custom_image_url ) : array();
+
+        if( isset( $custom_image_size[0] ) && is_int( $custom_image_size[0] ) && isset( $custom_image_size[1] ) && is_int( $custom_image_size[1] ) ) {
+            $thumb = array(
+                $custom_image_url,
+                $custom_image_size[0],
+                $custom_image_size[1],
+                false,
+            );
+        } else {
+            $thumb = wp_get_attachment_image_src( $image_id, $size );
+        }
+
+        return $thumb;
     }
 }

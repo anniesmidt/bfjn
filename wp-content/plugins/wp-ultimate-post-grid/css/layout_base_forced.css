@@ -13,7 +13,9 @@ html body .wpupg-container {
   float: left;
   text-align: left;
   font-size: 14px !important; }
-  html body .wpupg-container span {
+  html body .wpupg-container span:not(.wpupg-show-on-hover) {
+    display: inline-block !important; }
+  html body .wpupg-container.wpupg-hovering span.wpupg-show-on-hover {
     display: inline-block !important; }
   html body .wpupg-container * {
     border: 0 !important;
@@ -85,5 +87,5 @@ html body .wpupg-container {
     text-decoration: none !important; }
     html body .wpupg-container a:hover {
       text-decoration: underline !important; }
-  html body .wpupg-container .wpupg-responsive-mobile {
+  html body .wpupg-container .wpupg-responsive-mobile, html body .wpupg-container .wpupg-show-on-hover {
     display: none; }

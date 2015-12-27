@@ -17,7 +17,9 @@ class WPUPG_Post_Save {
 
             // Basic metadata
             $fields = array(
-                'wpupg_custom_link'
+                'wpupg_custom_link',
+                'wpupg_custom_image',
+                'wpupg_custom_image_id',
             );
 
             foreach ( $fields as $field )

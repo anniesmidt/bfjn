@@ -7,33 +7,24 @@
 
     <div class="feature-section col two-col">
         <div class="col-1">
-            <h3>WP Ultimate Post Grid 1.7</h3>
+            <h3>WP Ultimate Post Grid 1.8</h3>
             <strong>New</strong>
             <ul>
-                <li>Feature: Manually define links for grid items</li>
-                <li>Feature: Limit terms shown in filter</li>
-                <li>Feature: Limit the total number of posts in the grid</li>
-                <li>Improvement: Better support for RTL languages</li>
-                <li>Improvement: Empty button text hides the All button for the Isotope Filter</li>
-                <li>Improvement: Nicer permalinks in grid</li>
-                <li>Improvement: Isotope 2.2.2</li>
-            </ul>
-            <strong>Update</strong>
-            <ul>
-                <li>Fix: Problem with non-latin characters</li>
+                <li>Feature: Grid now works with media attachments (images on your website)</li>
+                <li>Feature: Use inverse filters, hide items on select</li>
+                <li>Feature: Set custom image to use instead of featured image</li>
+                <li>Feature: New free "Hover with Date" template</li>
+                <li>Improvement: WordPress 4.4 compatibility</li>
+                <li>Improvement: Updated Select2 to version 4.0.1</li>
             </ul>
         </div>
         <div class="col-2 last-feature">
-            <h3>WP Ultimate Post Grid Premium 1.7</h3>
+            <h3>WP Ultimate Post Grid Premium 1.8</h3>
             <strong>New</strong>
             <ul>
-                <li>Feature: Load posts on filter</li>
-                <li>Feature: Custom Fields block in Template Editor</li>
-                <li>Improvement: Execute shortcodes in post content block</li>
-            </ul>
-            <strong>Update</strong>
-            <ul>
-                <li>Fix: Paragraphs when displaying post content</li>
+                <li>Feature: Order grid by custom key</li>
+                <li>Feature: Ability to set hover options in Template Editor</li>
+                <li>Feature: Infinite Scroll Load Pagination</li>
             </ul>
         </div>
     </div>
@@ -42,6 +33,25 @@
 
     <div>
         <h3>Previous Versions</h3>
+
+        <h4>Premium Plugin 1.7</h4>
+        <ul>
+            <li>Feature: Load posts on filter</li>
+            <li>Feature: Custom Fields block in Template Editor</li>
+            <li>Improvement: Execute shortcodes in post content block</li>
+            <li>Fix: Paragraphs when displaying post content</li>
+        </ul>
+        <h4>Core Plugin 1.7</h4>
+        <ul>
+            <li>Feature: Manually define links for grid items</li>
+            <li>Feature: Limit terms shown in filter</li>
+            <li>Feature: Limit the total number of posts in the grid</li>
+            <li>Improvement: Better support for RTL languages</li>
+            <li>Improvement: Empty button text hides the All button for the Isotope Filter</li>
+            <li>Improvement: Nicer permalinks in grid</li>
+            <li>Improvement: Isotope 2.2.2</li>
+            <li>Fix: Problem with non-latin characters</li>
+        </ul>
 
         <h4>Premium Plugin 1.6</h4>
         <ul>

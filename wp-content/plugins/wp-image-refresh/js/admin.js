@@ -1,27 +1,42 @@
 jQuery(document).ready(function() {
     var stringurl = url_object.urlstring;
 
-    jQuery('submit' ,'#slidercreate' , function(event){
+   
+	jQuery( "#slidercreate" ).submit(function( event ) {
 
         var slideTitle = jQuery('#slideTitle').val();
+        var slideText =  jQuery('#slideText').val(); 
         var slideImage = jQuery('#image_path').val();
-        var slideedit = jQuery('#slideedit').val();
+        var slideedit =  jQuery('#slideedit').val();
 
         var sFileExtension = slideImage.split('.')[slideImage.split('.').length - 1].toLowerCase();
 
         var validator = 1;
-
+        
+        
+        
         if(!slideTitle || slideTitle == ''){
             validator = 2;
             jQuery('.slideTitle').html('Please enter image title first.');
         }else{
             jQuery('.slideTitle').html('');
         }
-
+        
+        if(slideText != ''){
+            if(/(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/.test(slideText) == false){
+                  jQuery('.slideText').html('Please enter a valid URL');
+                  validator = 2;
+            }else{
+                  jQuery('.slideText').html('');
+            }
+        }else{
+            jQuery('.slideText').html('');
+        }
+        
 
         if((!slideImage || slideImage == '') && slideedit == ''){
             validator = 2;
-            jQuery('.slideImage').html('Please select an image image to upload.');
+            jQuery('.slideImage').html('Please select an image to upload.');
         }else if(/^(http|https):/.test(slideImage) == false){
             validator = 2;
             jQuery('.slideImage').html('Please enter valid image url.');

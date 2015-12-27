@@ -19,6 +19,14 @@ class WPUPG_Template_Block {
     public $max_width;
     public $max_height;
 
+    // Hover conditions
+    public $show_on_hover = false;
+    public $hide_on_hover = false;
+    public $hover_in_transition = 'instant';
+    public $hover_out_transition = 'instant';
+    public $hover_in_time = 0;
+    public $hover_out_time = 0;
+
     // Responsive condition
     protected $show_on_desktop = true;
     protected $show_on_mobile = true;
@@ -175,6 +183,18 @@ class WPUPG_Template_Block {
         }
 
         /*
+         * Hover
+         */
+        if( $this->present( $block, 'hover' ) ) {
+            if( $block->hover == 'show' ) $this->show_on_hover = true;
+            if( $block->hover == 'hide' ) $this->hide_on_hover = true;
+        }
+        if( $this->present( $block, 'hoverInTransition' ) ) $this->hover_in_transition = $block->hoverInTransition;
+        if( $this->present( $block, 'hoverOutTransition' ) ) $this->hover_out_transition = $block->hoverOutTransition;
+        if( $this->present( $block, 'hoverInTime' ) ) $this->hover_in_time = $block->hoverInTime;
+        if( $this->present( $block, 'hoverOutTime' ) ) $this->hover_out_time = $block->hoverOutTime;
+
+        /*
          * Conditions
          */
         if( isset( $block->conditions ) ) {
@@ -240,7 +260,7 @@ class WPUPG_Template_Block {
 
         foreach( $this->style[$name] as $property => $value )
         {
-            if( WPUltimatePostGrid::option( 'grid_template_force_style', '1' ) == '1' ) {
+            if( WPUltimatePostGrid::option( 'grid_template_force_style', '0' ) == '1' ) {
                 $output .= $property . ':' . $value . ' !important;';
             } else {
                 $output .= $property . ':' . $value . ';';
@@ -302,9 +322,18 @@ class WPUPG_Template_Block {
                 $classes[] = esc_attr( $this->settings->customClass );
             }
 
+            if( $this->hide_on_hover || $this->show_on_hover ) {
+                $classes[] = $this->hide_on_hover ? 'wpupg-hide-on-hover' : 'wpupg-show-on-hover';
+            }
+
             $classes = implode( ' ', $classes );
 
             $class = ' class="' . $classes . '"';
+
+            if( $this->hide_on_hover || $this->show_on_hover ) {
+                $class .= ' data-hover-in="' . $this->hover_in_transition . '" data-hover-out="' . $this->hover_out_transition . '"';
+                $class .= ' data-hover-in-duration="' . $this->hover_in_time . '" data-hover-out-duration="' . $this->hover_out_time . '"';
+            }
         }
 
 
@@ -344,6 +373,9 @@ class WPUPG_Template_Block {
             switch( $condition['field'] ) {
                 case 'post_image':
                     $post_image_id = get_post_thumbnail_id( $post->ID );
+                    if( !$post_image_id ) {
+                        $post_image_id = get_post_meta( $post->ID, 'wpupg_custom_image', true );
+                    }
                     $present = $post_image_id == '' ? false : true;
                     break;
                 case 'post_content':
@@ -480,7 +512,7 @@ class WPUPG_Template_Block {
         // TODO Better way of doing this?
         if( $this->link_color ) {
 
-            if( WPUltimatePostGrid::option( 'grid_template_force_style', '1' ) == '1' ) {
+            if( WPUltimatePostGrid::option( 'grid_template_force_style', '0' ) == '1' ) {
                 $important = ' !important';
             } else {
                 $important = '';

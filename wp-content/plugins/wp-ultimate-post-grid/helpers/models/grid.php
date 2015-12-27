@@ -7,6 +7,7 @@ class WPUPG_Grid {
     private $fields = array(
         'wpupg_centered',
         'wpupg_images_only',
+        'wpupg_filter_inverse',
         'wpupg_filter_limit',
         'wpupg_filter_match_parents',
         'wpupg_filter_multiselect',
@@ -21,6 +22,8 @@ class WPUPG_Grid {
         'wpupg_link_type',
         'wpupg_order_by',
         'wpupg_order',
+        'wpupg_order_custom_key',
+        'wpupg_order_custom_key_numeric',
         'wpupg_template',
     );
 
@@ -28,6 +31,10 @@ class WPUPG_Grid {
     private $pagination_fields = array(
         'pages' => array(
             'posts_per_page'    => 20,
+        ),
+        'infinite_load' => array(
+            'initial_posts'     => 20,
+            'posts_on_scroll'   => 20,
         ),
         'load_more' => array(
             'initial_posts'     => 20,
@@ -168,6 +175,11 @@ class WPUPG_Grid {
         return $filter_style;
     }
 
+    public function filter_inverse()
+    {
+        return $this->meta( 'wpupg_filter_inverse' );
+    }
+
     public function filter_limit()
     {
         return $this->meta( 'wpupg_filter_limit' );
@@ -258,6 +270,16 @@ class WPUPG_Grid {
         return $this->meta( 'wpupg_order_by' );
     }
 
+    public function order_custom_key()
+    {
+        return $this->meta( 'wpupg_order_custom_key' );
+    }
+
+    public function order_custom_key_numeric()
+    {
+        return $this->meta( 'wpupg_order_custom_key_numeric' );
+    }
+
     public function pagination()
     {
         $pagination = maybe_unserialize( $this->meta( 'wpupg_pagination' ) );
@@ -298,9 +320,9 @@ class WPUPG_Grid {
         return $this->post;
     }
 
-    public function post_status() // TODO
+    public function post_status()
     {
-        return 'publish';
+        return in_array( 'attachment', $this->post_types() ) ? array( 'publish', 'inherit' ) : 'publish';
     }
 
     public function post_types()
@@ -372,13 +394,20 @@ class WPUPG_Grid {
 
         $args = array(
             'post_type' => 'any',
-            'orderby' => $this->order_by(),
+            'post_status' => 'any',
             'order' => $this->order(),
             'posts_per_page' => $posts_per_page,
             'offset' => $offset,
             'post__in' => $post_ids,
             'ignore_sticky_posts' => true,
         );
+
+        if( $this->order_by() == 'custom' ) {
+            $args['meta_key'] = $this->order_custom_key();
+            $args['orderby'] = $this->order_custom_key_numeric() ? 'meta_value_num' : 'meta_value';
+        } else {
+            $args['orderby'] = $this->order_by();
+        }
 
         $args = apply_filters( 'wpupg_get_posts_args', $args, $page, $this );
 

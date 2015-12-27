@@ -15,6 +15,7 @@ $pagination = $grid->pagination();
                 $pagination_type_options = array(
                     'none' => __( 'No pagination (all posts visible at once)', 'wp-ultimate-post-grid' ),
                     'pages' => __( 'Divide posts in pages', 'wp-ultimate-post-grid' ),
+                    'infinite_load' => __( 'Infinite Scroll Load', 'wp-ultimate-post-grid' ) . $premium_only,
                     'load_more' => __( 'Use a "Load More" button', 'wp-ultimate-post-grid' ) . $premium_only,
                     'load_filter' => __( 'Load more posts on filter', 'wp-ultimate-post-grid' ) . $premium_only,
                     'load_more_filter' => __( 'Use a "Load More" button', 'wp-ultimate-post-grid' ) . ' & '. __( 'Load more posts on filter', 'wp-ultimate-post-grid' ) . $premium_only,
@@ -37,6 +38,22 @@ $pagination = $grid->pagination();
             <div id="wpupg_pagination_pages_posts_per_page_slider"></div>
         </td>
         <td><input type="text" name="wpupg_pagination_pages_posts_per_page" id="wpupg_pagination_pages_posts_per_page" value="<?php echo $pagination['pages']['posts_per_page']; ?>" /><?php _e( 'posts', 'wp-ultimate-posts-grid' ); ?></td>
+    </tr>
+    </tbody>
+    <tbody class="wpupg_pagination_infinite_load">
+    <tr class="wpupg_divider">
+        <td><label for="wpupg_pagination_infinite_load_initial_posts"><?php _e( 'Initial posts', 'wp-ultimate-post-grid' ); ?></label></td>
+        <td>
+            <div id="wpupg_pagination_infinite_load_initial_posts_slider"></div>
+        </td>
+        <td><input type="text" name="wpupg_pagination_infinite_load_initial_posts" id="wpupg_pagination_infinite_load_initial_posts" value="<?php echo $pagination['infinite_load']['initial_posts']; ?>" /><?php _e( 'posts', 'wp-ultimate-posts-grid' ); ?></td>
+    </tr>
+    <tr>
+        <td><label for="wpupg_pagination_infinite_load_posts_on_scroll"><?php _e( 'Posts loaded on scroll', 'wp-ultimate-post-grid' ); ?></label></td>
+        <td>
+            <div id="wpupg_pagination_infinite_load_posts_on_scroll_slider"></div>
+        </td>
+        <td><input type="text" name="wpupg_pagination_infinite_load_posts_on_scroll" id="wpupg_pagination_infinite_load_posts_on_scroll" value="<?php echo $pagination['infinite_load']['posts_on_scroll']; ?>" /><?php _e( 'posts', 'wp-ultimate-posts-grid' ); ?></td>
     </tr>
     </tbody>
     <tbody class="wpupg_pagination_load_more wpupg_pagination_load_more_filter">

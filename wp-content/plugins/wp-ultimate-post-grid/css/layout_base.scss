@@ -17,8 +17,14 @@ html body .wpupg-container {
     text-align: left;
     font-size: 14px;
 
-    span {
+    span:not(.wpupg-show-on-hover) {
         display: inline-block;
+    }
+
+    &.wpupg-hovering {
+        span.wpupg-show-on-hover {
+          display: inline-block;
+        }
     }
 
     * {
@@ -141,7 +147,7 @@ html body .wpupg-container {
         }
     }
 
-    .wpupg-responsive-mobile {
+    .wpupg-responsive-mobile, .wpupg-show-on-hover {
         display: none;
     }
 }

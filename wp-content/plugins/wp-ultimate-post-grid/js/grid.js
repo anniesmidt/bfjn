@@ -49,6 +49,75 @@ WPUltimatePostGrid.initGrid = function(container) {
 
     WPUltimatePostGrid.checkLinks(grid_id);
     WPUltimatePostGrid.updatePosts(grid_id);
+
+    jQuery(container).on('hover', '.wpupg-item', function(e) {
+        var hovering = e.type == 'mouseenter';
+        WPUltimatePostGrid.hoverGridItem(jQuery(this), hovering);
+    });
+};
+
+WPUltimatePostGrid.hoverGridItem = function(grid_item, hovering) {
+    if(hovering) {
+        grid_item.addClass('wpupg-hovering');
+
+        grid_item.find('.wpupg-show-on-hover').each(function() {
+            var item = jQuery(this),
+                effect = item.data('hover-in'),
+                duration = parseInt(item.data('hover-in-duration'));
+
+            if(effect == 'fade') {
+                item.fadeIn(duration);
+            } else if(effect == 'slide') {
+                item.slideDown(duration);
+            } else {
+                item.show();
+            }
+        });
+
+        grid_item.find('.wpupg-hide-on-hover').each(function() {
+            var item = jQuery(this),
+                effect = item.data('hover-out'),
+                duration = parseInt(item.data('hover-out-duration'));
+
+            if(effect == 'fade') {
+                item.fadeOut(duration);
+            } else if(effect == 'slide') {
+                item.slideUp(duration);
+            } else {
+                item.hide();
+            }
+        });
+    } else {
+        grid_item.removeClass('wpupg-hovering');
+
+        grid_item.find('.wpupg-show-on-hover').each(function() {
+            var item = jQuery(this),
+                effect = item.data('hover-out'),
+                duration = parseInt(item.data('hover-out-duration'));
+
+            if(effect == 'fade') {
+                item.fadeOut(duration);
+            } else if(effect == 'slide') {
+                item.slideUp(duration);
+            } else {
+                item.hide();
+            }
+        });
+
+        grid_item.find('.wpupg-hide-on-hover').each(function() {
+            var item = jQuery(this),
+                effect = item.data('hover-in'),
+                duration = parseInt(item.data('hover-in-duration'));
+
+            if(effect == 'fade') {
+                item.fadeIn(duration);
+            } else if(effect == 'slide') {
+                item.slideDown(duration);
+            } else {
+                item.show();
+            }
+        });
+    }
 };
 
 WPUltimatePostGrid.updatePosts = function(grid_id) {
@@ -81,13 +150,16 @@ WPUltimatePostGrid.filterGrid = function(grid_id) {
 
             var match_one_filters = [];
             var match_all_filter = '';
+            var filter = '';
 
             if(taxonomy_filters) {
                 for(var i = 0; i < taxonomy_filters.length; i++) {
+                    filter = '.wpupg-tax-' + taxonomy + '-' + taxonomy_filters[i];
+
                     if(grid.multiselect_type == 'match_one') {
-                        match_one_filters.push('.wpupg-tax-' + taxonomy + '-' + taxonomy_filters[i]);
+                        match_one_filters.push(filter);
                     } else {
-                        match_all_filter += '.wpupg-tax-' + taxonomy + '-' + taxonomy_filters[i];
+                        match_all_filter += filter;
                     }
                 }
             }
@@ -102,6 +174,16 @@ WPUltimatePostGrid.filterGrid = function(grid_id) {
 
     grid.filter = '';
     WPUltimatePostGrid.getFilterString(grid_id, '', filters, 0);
+    if(grid.inverse) {
+        if(grid.pagination_type == 'pages') {
+            var page = grid.page || 0;
+            var filter_without_page = grid.filter.replace('.wpupg-page-' + page, '');
+
+            grid.filter = '.wpupg-page-' + page + ':not(' + filter_without_page + ')';
+        } else {
+            grid.filter = ':not(' + grid.filter + ')';
+        }
+    }
 
     grid.container.isotope({ filter: grid.filter });
     grid.container.trigger('wpupgFiltered');
@@ -232,6 +314,7 @@ WPUltimatePostGrid.initFilterIsotope = function(container) {
 
     WPUltimatePostGrid.grids[grid_id].multiselect = container.data('multiselect');
     WPUltimatePostGrid.grids[grid_id].multiselect_type = container.data('multiselect-type');
+    WPUltimatePostGrid.grids[grid_id].inverse = container.data('inverse');
 
     container.find('.wpupg-filter-isotope-term').click(function() {
         var filter_item = jQuery(this);

@@ -26,7 +26,19 @@ if (!$orderby) {
 if (!$sortby) {
     $sortby = 'slideTitle';
 }
-$siteurl = get_site_url();
+
+
+$valid_sort = array('slideTitle');
+$valid_order =  array('desc' , 'asc');
+
+if (!in_array($sortby, $valid_sort)) {
+	die;
+}
+
+if (!in_array($orderby, $valid_order)) {
+	die;
+}
+
 
 
 $results = $wpdb->get_results("SELECT * FROM $table_name ORDER BY $sortby $orderby ", OBJECT);
@@ -44,6 +56,7 @@ if ($sortby = 'slideTitle' && $orderby == 'asc') {
 ?>
 
         <div class="wrap">
+		
         <h2>Images <?php echo '<a class="add-new-h2" href="?page=wp_image_refresh_add">Add</a>'; ?></h2>
         <?php if(isset($_SESSION['msg'])){ echo '<div class="updated success" id="message"><p>'.$_SESSION['msg'].'</p></div>';  unset($_SESSION['msg']); } ?>
 
@@ -72,7 +85,7 @@ if ($sortby = 'slideTitle' && $orderby == 'asc') {
 	<input type="checkbox" id="cb-select-all-1"></th>
 
 	<th scope="col" id="username" class="manage-column column-slideTitle sortable <?php if($sortby = 'slideTitle' && $orderby =='asc') { echo 'desc'; } else{ echo 'desc';} ?>">
-	<a href="<?php echo $siteurl.'/wp-admin/admin.php?page=wp_image_refresh&sort_by=slideTitle&order_by='.$slidesort.' '; ?>"><span>Title</span><span class="sorting-indicator"></span></a>
+	<a href="<?php echo site_url().'/wp-admin/admin.php?page=wp_image_refresh&sort_by=slideTitle&order_by='.$slidesort.' '; ?>"><span>Title</span><span class="sorting-indicator"></span></a>
 	</th>
 
 	<th scope="col" id="username" class="manage-column">
@@ -122,3 +135,4 @@ if ($sortby = 'slideTitle' && $orderby == 'asc') {
         </form>
         <br class="clear">
         </div>
+

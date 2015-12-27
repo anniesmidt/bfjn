@@ -2,7 +2,7 @@
   width: 26px; }
 
 .reveal-modal {
-  z-index: 1000 !important; }
+  z-index: 99999 !important; }
 
 .wpupg_notice .wpupg_notice_dismiss {
   margin-top: 8px;

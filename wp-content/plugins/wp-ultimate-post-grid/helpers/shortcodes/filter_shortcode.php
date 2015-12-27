@@ -65,7 +65,8 @@ class WPUPG_Filter_Shortcode {
                     $style_data .= ' data-hover-border-color="' . $filter_style['border_hover_color'] . '"';
 
                     $multiselect = $grid->filter_multiselect() ? 'true' : 'false';
-                    $filter .= '<div id="wpupg-grid-' . esc_attr( $slug ) . '-filter" class="wpupg-filter wpupg-filter-' . $filter_type . '" style="text-align: ' . $filter_style['alignment'] . ';" data-grid="' . esc_attr( $slug ) . '" data-type="' . $filter_type . '" data-multiselect="' . $multiselect . '" data-multiselect-type="' . $grid->filter_multiselect_type() . '"' . $style_data . '>';
+                    $inverse = $grid->filter_inverse() ? 'true' : 'false';
+                    $filter .= '<div id="wpupg-grid-' . esc_attr( $slug ) . '-filter" class="wpupg-filter wpupg-filter-' . $filter_type . '" style="text-align: ' . $filter_style['alignment'] . ';" data-grid="' . esc_attr( $slug ) . '" data-type="' . $filter_type . '" data-multiselect="' . $multiselect . '" data-multiselect-type="' . $grid->filter_multiselect_type() . '" data-inverse="' . $inverse . '"' . $style_data . '>';
                     $filter .= $grid->filter();
                     $filter .= '</div>';
                 }

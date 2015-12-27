@@ -4,20 +4,23 @@ include_once dirname(__FILE__) . '/functions.php';
 
 $success = '';
 @$id = $_REQUEST['id'];
+settype($id, 'integer');
 $error = '';
 $tablename = $wpdb->prefix . "image_refresh";
 
 
-if ($id) {
+if ($id && is_int($id)) {
     $detail = $wpdb->get_results("SELECT * FROM $tablename where id_pk = $id", OBJECT);
 }
 
 $filename = '';
 $data = array();
 if (isset($_POST["save"]) || isset($_POST["exit"])) {
-	$slideTitle = strip_tags($_POST['slideTitle']);
+	$slideTitle = sanitize_text_field($_POST['slideTitle']);
 
-    $slideImage = $_POST['path'];
+    $slideImage = sanitize_text_field($_POST['path']);
+	$slideText = sanitize_text_field($_POST['slideText']);
+
 
     if ($slideTitle == '') {
         $error[] = "Please enter image title";
@@ -33,6 +36,12 @@ if (isset($_POST["save"]) || isset($_POST["exit"])) {
     if (!in_array($ext, $allowed)) {
         $error[] = "Only jpg and png files are allowed";
     }
+	
+	if(!empty($slideText)){
+		if(filter_var($slideText, FILTER_VALIDATE_URL) == false){
+			$error[] = "Please enter a valid URL";
+		}	
+	}
 
     if (!$error) {
         if (!empty($slideImage)) {
@@ -55,7 +64,7 @@ if (isset($_POST["save"]) || isset($_POST["exit"])) {
 
         $data = array(
             'slideTitle' => $slideTitle,
-            'slideText' => '',
+            'slideText' =>  $slideText,
             'slideImage' => $filename,
             'slideOrder' => $sort
         );
@@ -81,7 +90,7 @@ if (isset($_POST["save"]) || isset($_POST["exit"])) {
     }
 }
 $img_path = '';
-if ($id) {
+if ($id && is_int($id)) {
     $detail = $wpdb->get_results("SELECT * FROM $tablename where id_pk = $id", OBJECT);
     $img_path = $detail[0]->slideImage;
 }
@@ -111,6 +120,11 @@ if ($id) {
 	<tr class="form-field form-required">
 		<th scope="row"><label for="slideTitle">Image Title <span class="description">(required)</span></label></th>
 		<td><input style="width: 64%;" type="text" aria-required="true" value="<?php if(!empty($detail[0]->slideTitle)){ echo $detail[0]->slideTitle;} ?>" id="slideTitle" name="slideTitle"><br><span class="slideTitle" style="color:red;"></span></td>
+	</tr>
+
+	<tr class="form-field form-required">
+		<th scope="row"><label for="slideText">Image URL <span class="description">(http://www.example.com/)</span></label></th>
+		<td><input style="width: 64%;" type="text" aria-required="true" value="<?php if(!empty($detail[0]->slideText)){ echo $detail[0]->slideText;} ?>" id="slideText" name="slideText"><br><span class="slideText" style="color:red;"></span></td>
 	</tr>
 
 

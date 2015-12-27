@@ -97,8 +97,12 @@ function get_attachment_id_from_src ($image_src) {
 	}
 
 //Create dynamic containers and set class
-function getCont($cont,$class,$value,$cont1,$class1,$value1){
+function getCont($cont,$class,$value,$cont1,$class1,$value1,$slideText){
     $allowed = array('div' , 'span');
+	
+	if(!empty($slideText) && filter_var($slideText, FILTER_VALIDATE_URL) !== false){
+		$value = "<a href='".$slideText."'>".$value."</a>";
+	}
 
     if(!empty($value1)){
           if(in_array($cont , $allowed) && in_array($cont1 , $allowed)){
@@ -124,8 +128,8 @@ function loadslider($atts) {
     global $wpdb;
 
     $atts = shortcode_atts( array(
-    		'type' => 'full',
-		    'class'=> '',
+    	'type' => 'full',
+		'class'=> '',
         'title'=> false,
         'container' => '',
         'container_class' => '',
@@ -138,13 +142,13 @@ function loadslider($atts) {
     $table_name = $wpdb->prefix . "image_refresh";
 
     if (count($_SESSION['slideimageall']) == 0) {
-        $images = $wpdb->get_results("SELECT slideTitle,slideImage FROM $table_name ORDER BY rand()", OBJECT);
+        $images = $wpdb->get_results("SELECT slideTitle,slideImage,slideText FROM $table_name ORDER BY rand()", OBJECT);
 
         //Hold complete Image array
         $_SESSION['slideimageall'] = array();
 
         foreach ($images as $images1) {
-            array_push($_SESSION['slideimageall'], array('slideImage' => $images1->slideImage, 'slideTitle' => $images1->slideTitle));
+            array_push($_SESSION['slideimageall'], array('slideImage' => $images1->slideImage, 'slideTitle' => $images1->slideTitle, 'slideText' => $images1->slideText));
         }
     }
 
@@ -179,6 +183,10 @@ function loadslider($atts) {
         $imgs_src = $myarr['slideImage'];
     }
 
+	 if (!empty($myarr['slideText'])) {
+        $slideText = $myarr['slideText'];
+    }
+
     if (!empty($myarr['slideTitle'])) {
         $imgs_title = $myarr['slideTitle'];
     }
@@ -192,9 +200,9 @@ function loadslider($atts) {
 
 
     if($atts['title'] == 'true'){
-          getCont($atts['container'] , $atts['container_class'], $outimg , $atts['title_container'] , $atts['title_container_class'], $myarr['slideTitle']);
+          getCont($atts['container'] , $atts['container_class'], $outimg , $atts['title_container'] , $atts['title_container_class'], $myarr['slideTitle'],$slideText);
     }else{ 
-          getCont($atts['container'] , $atts['container_class'], $outimg, '' , '' , '');
+          getCont($atts['container'] , $atts['container_class'], $outimg, '' , '' , '',$slideText);
     }
 
 

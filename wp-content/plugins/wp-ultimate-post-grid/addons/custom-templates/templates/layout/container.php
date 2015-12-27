@@ -34,7 +34,7 @@ class WPUPG_Template_Container extends WPUPG_Template_Block {
         }
 
         $custom_link = trim( get_post_meta( $post->ID, 'wpupg_custom_link', true ) );
-        $image = get_post_thumbnail_id( $post->ID );
+        $image = $post->post_type == 'attachment' ? $post->ID : get_post_thumbnail_id( $post->ID );
         $image_url = $image ? wp_get_attachment_url( $image ) : '';
 
         $output = $this->before_output();

@@ -35,6 +35,7 @@ $premium_only = WPUltimatePostGrid::is_premium_active() ? '' : ' (' . __( 'Premi
                     'title' => __( 'Title', 'wp-ultimate-post-grid' ),
                     'date' => __( 'Date', 'wp-ultimate-post-grid' ),
                     'rand' => __( 'Random', 'wp-ultimate-post-grid' ),
+                    'custom' => __( 'Custom Key', 'wp-ultimate-post-grid' ) . $premium_only,
                 );
 
                 foreach( $order_by_options as $order_by => $order_by_name ) {
@@ -64,6 +65,20 @@ $premium_only = WPUltimatePostGrid::is_premium_active() ? '' : ' (' . __( 'Premi
             </select>
         </td>
         <td>&nbsp;</td>
+    </tr>
+    <tr class="wpupg_order_custom_key_container">
+        <td><label for="wpupg_order_custom_key"><?php _e( 'Custom Key', 'wp-ultimate-post-grid' ); ?></label></td>
+        <td>
+            <input type="text" name="wpupg_order_custom_key" id="wpupg_order_custom_key" value="<?php echo $grid->order_custom_key(); ?>"/>
+        </td>
+        <td><?php _e( 'Custom key to order the grid by.', 'wp-ultimate-post-grid' ); ?></td>
+    </tr>
+    <tr class="wpupg_order_custom_key_container">
+        <td><label for="wpupg_order_custom_key_numeric"><?php _e( 'Numeric Order', 'wp-ultimate-post-grid' ); ?></label></td>
+        <td>
+            <input type="checkbox" name="wpupg_order_custom_key_numeric" id="wpupg_order_custom_key_numeric" <?php if( $grid->order_custom_key_numeric() ) echo 'checked="true" '?>/>
+        </td>
+        <td><?php _e( 'Enable if the custom field contains numbers.', 'wp-ultimate-post-grid' ); ?></td>
     </tr>
     <tr class="wpupg_divider">
         <td><label for="wpupg_images_only"><?php _e( 'Images Only', 'wp-ultimate-post-grid' ); ?></label></td>

@@ -4,9 +4,16 @@ class WPUPG_Grid_Cache {
 
     public function __construct()
     {
+        add_action( 'add_attachment', array( $this, 'updated_attachment' ) );
+        add_action( 'edit_attachment', array( $this, 'updated_attachment' ) );
         add_action( 'save_post', array( $this, 'updated_post' ), 11, 2 );
         add_action( 'edited_terms', array( $this, 'updated_term' ), 10, 2 );
         add_action( 'admin_init', array( $this, 'regenerate_grids_check' ) );
+    }
+
+    public function updated_attachment( $id )
+    {
+        $this->update_grids_with_post_type( 'attachment' );
     }
 
     public function updated_post( $id, $post )
@@ -17,23 +24,28 @@ class WPUPG_Grid_Cache {
         {
             $this->generate( $id );
         } else {
-            $args = array(
-                'post_type' => WPUPG_POST_TYPE,
-                'post_status' => 'any',
-                'posts_per_page' => -1,
-                'nopaging' => true,
-            );
+            $this->update_grids_with_post_type( $update_post_post_type );
+        }
+    }
 
-            $query = new WP_Query( $args );
-            $posts = $query->have_posts() ? $query->posts : array();
+    public function update_grids_with_post_type( $post_type )
+    {
+        $args = array(
+            'post_type' => WPUPG_POST_TYPE,
+            'post_status' => 'any',
+            'posts_per_page' => -1,
+            'nopaging' => true,
+        );
 
-            foreach ( $posts as $grid_post )
-            {
-                $grid = new WPUPG_Grid( $grid_post );
+        $query = new WP_Query( $args );
+        $posts = $query->have_posts() ? $query->posts : array();
 
-                if( in_array( $update_post_post_type, $grid->post_types() ) ) {
-                    $this->generate( $grid->ID() );
-                }
+        foreach ( $posts as $grid_post )
+        {
+            $grid = new WPUPG_Grid( $grid_post );
+
+            if( in_array( $post_type, $grid->post_types() ) ) {
+                $this->generate( $grid->ID() );
             }
         }
     }
@@ -95,24 +107,35 @@ class WPUPG_Grid_Cache {
             'post_status' => $grid->post_status(),
             'posts_per_page' => -1,
             'nopaging' => true,
-            'orderby' => $grid->order_by(),
             'order' => $grid->order(),
             'fields' => 'ids',
         );
 
+        if( $grid->order_by() == 'custom' ) {
+            $args['meta_key'] = $grid->order_custom_key();
+            $args['orderby'] = $grid->order_custom_key_numeric() ? 'meta_value_num' : 'meta_value';
+        } else {
+            $args['orderby'] = $grid->order_by();
+        }
+
         // Images Only
         if( $grid->images_only() ) {
-            $args['meta_query'] = array(
-                array(
-                    'key' => '_thumbnail_id',
-                    'value' => '0',
-                    'compare' => '>'
-                ),
-            );
+            if( in_array( 'attachment', $grid->post_types() ) ) {
+                $args['post_mime_type'] = 'image/jpeg,image/gif,image/jpg,image/png';
+            } else {
+                $args['meta_query'] = array(
+                    array(
+                        'key' => '_thumbnail_id',
+                        'value' => '0',
+                        'compare' => '>'
+                    ),
+                );
+            }
         }
 
         $query = new WP_Query( $args );
         $posts = $query->have_posts() ? $query->posts : array();
+
         $post_ids = array_map( 'intval', $posts );
 
         $post_ids = apply_filters( 'wpupg_grid_cache_post_ids', $post_ids, $grid );
@@ -218,9 +241,16 @@ class WPUPG_Grid_Cache {
                 $filter .= '<div class="wpupg-filter-item wpupg-filter-isotope-term wpupg-filter-tag- active">' . $filter_style['isotope']['all_button_text'] . '</div>';
             }
 
-            ksort( $filter_terms );
-            foreach( $filter_terms as $slug => $options ) {
-                $filter .= '<div class="wpupg-filter-item wpupg-filter-isotope-term wpupg-filter-tag-' . $slug . '" data-taxonomy="' . $options['taxonomy'] . '" data-filter="' . $slug . '">' . $options['name'] . '</div>';
+            $filter_terms_order = array_keys( $filter_terms );
+            sort( $filter_terms_order );
+            $filter_terms_order = apply_filters( 'wpupg_grid_cache_filter_isotope_term_order', $filter_terms_order, $grid );
+
+            foreach( $filter_terms_order as $slug ) {
+                $options = isset( $filter_terms[$slug] ) ? $filter_terms[$slug] : false;
+
+                if( $options ) {
+                    $filter .= '<div class="wpupg-filter-item wpupg-filter-isotope-term wpupg-filter-tag-' . $slug . '" data-taxonomy="' . $options['taxonomy'] . '" data-filter="' . $slug . '">' . $options['name'] . '</div>';
+                }
             }
         }
 

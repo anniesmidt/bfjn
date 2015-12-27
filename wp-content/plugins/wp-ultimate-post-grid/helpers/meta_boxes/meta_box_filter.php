@@ -62,6 +62,13 @@ $premium_only = WPUltimatePostGrid::is_premium_active() ? '' : ' (' . __( 'Premi
         </td>
         <td><?php _e( 'Selecting a parent term will also match posts with one of its child terms.', 'wp-ultimate-post-grid' ); ?></td>
     </tr>
+    <tr>
+        <td><label for="wpupg_filter_inverse"><?php _e( 'Inverse Selection', 'wp-ultimate-post-grid' ); ?></label></td>
+        <td>
+            <input type="checkbox" name="wpupg_filter_inverse" id="wpupg_filter_inverse" <?php if( $grid->filter_inverse() ) echo 'checked="true" '?>/>
+        </td>
+        <td><?php _e( 'Items that match the selection will be hidden.', 'wp-ultimate-post-grid' ); ?></td>
+    </tr>
     <tr class="wpupg_divider">
         <td><label for="wpupg_filter_multiselect"><?php _e( 'Multi-select', 'wp-ultimate-post-grid' ); ?></label></td>
         <td>

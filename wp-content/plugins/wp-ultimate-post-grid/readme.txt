@@ -3,7 +3,7 @@ Contributors: BrechtVds
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QG7KZMGFU325Y
 Tags: grid, isotope, filter, custom post type
 Requires at least: 3.5
-Tested up to: 4.3
+Tested up to: 4.4
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -23,6 +23,7 @@ An overview of the WP Ultimate Post Grid features:
 *   Ability to set **order by** options
 *   Link to the actual **post or featured image**
 *   Define **custom links** for posts
+*   Define **custom images** for posts
 *   Add an **isotope filter** for any taxonomy
 *   **Deeplinking** directly to a filtered grid
 *   Grids and filters can be added anywhere with **their own shortcode**
@@ -37,7 +38,9 @@ We also have a [WP Ultimate Post Grid Premium version](http://bootstrapped.ventu
 *   Extensive **Template Editor** to create any grid you want
 *   A **Load More button** for pagination
 *   **Load on filter** pagination
+*   **Infinite scroll** pagination
 *   Easily **clone your grids**
+*   Order grid by **custom field**
 *   **Dynamically filter** grids in the shortcode
 
 This plugin is under active development. Any feature requests are welcome!
@@ -71,6 +74,14 @@ It's still an early version of the plugin and we'll be adding new features every
 5. Everything is fully responsive
 
 == Changelog ==
+
+= 1.8 =
+* Feature: Grid now works with media attachments (images on your website)
+* Feature: Use inverse filters, hide items on select
+* Feature: Set custom image to use instead of featured image
+* Feature: New free "Hover with Date" template
+* Improvement: WordPress 4.4 compatibility
+* Improvement: Updated Select2 to version 4.0.1
 
 = 1.7.2 =
 * Fix: Problem with some PHP versions
@@ -128,6 +139,9 @@ It's still an early version of the plugin and we'll be adding new features every
 * Very first version of this plugin
 
 == Upgrade notice ==
+
+= 1.8 =
+Update for WordPress 4.4 compatibility and some great new grid features
 
 = 1.7.2 =
 Update if you're experiencing issues when editing the grid

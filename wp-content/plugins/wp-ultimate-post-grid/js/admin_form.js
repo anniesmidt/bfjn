@@ -31,6 +31,14 @@ WPUltimatePostGrid.initForm = function() {
     slider_args.start = posts_per_page.val();
     jQuery('#wpupg_pagination_pages_posts_per_page_slider').noUiSlider(slider_args).Link('lower').to(posts_per_page);
 
+    var infinite_posts = jQuery('#wpupg_pagination_infinite_load_initial_posts');
+    slider_args.start = infinite_posts.val();
+    jQuery('#wpupg_pagination_infinite_load_initial_posts_slider').noUiSlider(slider_args).Link('lower').to(infinite_posts);
+
+    var posts_on_scroll = jQuery('#wpupg_pagination_infinite_load_posts_on_scroll');
+    slider_args.start = posts_on_scroll.val();
+    jQuery('#wpupg_pagination_infinite_load_posts_on_scroll_slider').noUiSlider(slider_args).Link('lower').to(posts_on_scroll);
+
     var initial_posts = jQuery('#wpupg_pagination_load_more_initial_posts');
     slider_args.start = initial_posts.val();
     jQuery('#wpupg_pagination_load_more_initial_posts_slider').noUiSlider(slider_args).Link('lower').to(initial_posts);
@@ -196,6 +204,7 @@ WPUltimatePostGrid.initForm = function() {
 
     // Initial State
     WPUltimatePostGrid.changedPostType();
+    WPUltimatePostGrid.changedOrderBy();
     WPUltimatePostGrid.changedLimitPosts();
     WPUltimatePostGrid.initRules();
     WPUltimatePostGrid.changedFilterType();
@@ -210,6 +219,7 @@ WPUltimatePostGrid.initForm = function() {
 
     // Events
     jQuery('#wpupg_post_types').on('change', function() { WPUltimatePostGrid.changedPostType(); });
+    jQuery('#wpupg_order_by').on('change', function() { WPUltimatePostGrid.changedOrderBy(); });
     jQuery('#wpupg_limit_posts').on('change', function() { WPUltimatePostGrid.changedLimitPosts(); });
     jQuery('#wpupg_add_rule').on('click', function(e) { e.preventDefault(); WPUltimatePostGrid.addRule(); });
     jQuery('.wpupg_rule_delete').on('click', function(e) { e.preventDefault(); WPUltimatePostGrid.removeRule(jQuery(this).parents('tr').attr('data-rule')); });
@@ -311,6 +321,18 @@ WPUltimatePostGrid.changedPostType = function() {
 
     WPUltimatePostGrid.changedFilterType();
     WPUltimatePostGrid.changedLimitTerms();
+};
+
+WPUltimatePostGrid.changedOrderBy = function() {
+    var order_by = jQuery('#wpupg_order_by').find(':selected').val();
+
+    if(order_by == 'custom') {
+        WPUltimatePostGrid.checkPremiumFeatures('order_by', true);
+        jQuery('.wpupg_order_custom_key_container').show();
+    } else {
+        WPUltimatePostGrid.checkPremiumFeatures('order_by', false);
+        jQuery('.wpupg_order_custom_key_container').hide();
+    }
 };
 
 WPUltimatePostGrid.changedLimitPosts = function() {
@@ -443,7 +465,7 @@ WPUltimatePostGrid.changedLimitTerms = function() {
     var post_type = jQuery('#wpupg_post_types').find(':selected').val();
     var taxonomies = jQuery('#wpupg_filter_taxonomy_' + post_type).val();
 
-    if(limit_terms) {
+    if(limit_terms && taxonomies) {
         jQuery('.wpupg_limit_terms').show();
         jQuery('.wpupg_filter_terms_taxonomy').hide();
 
@@ -550,14 +572,14 @@ WPUltimatePostGrid.changedPaginationType = function() {
     jQuery('#wpupg_form_pagination').find('tbody.wpupg_pagination_' + pagination_type).show();
 
     // Premium only pagination
-    if(pagination_type == 'pages') {
+    if(pagination_type == 'none' || pagination_type == 'pages') {
         WPUltimatePostGrid.checkPremiumFeatures('pagination_type', false);
     } else {
         WPUltimatePostGrid.checkPremiumFeatures('pagination_type', true);
     }
 
     // Hide & Show Pagination Styles
-    if(pagination_type != 'none' && pagination_type != 'load_filter') {
+    if(pagination_type != 'none' && pagination_type != 'infinite_load' && pagination_type != 'load_filter') {
         pagination_type = pagination_type == 'load_more_filter' ? 'load_more' : pagination_type;
         jQuery('#wpupg_meta_box_pagination_style').show().find('.wpupg_filter_preview').hide();
         jQuery('#wpupg_filter_preview_pagination_style_' + pagination_type).show();

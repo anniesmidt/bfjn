@@ -78,7 +78,7 @@ $admin_menu = array(
                                     'name' => 'grid_template_force_style',
                                     'label' => __('Force CSS style', 'wp-ultimate-post-grid'),
                                     'description' => __( 'This ensures maximum compatibility with most themes. Can be disabled for advanced usage.', 'wp-ultimate-post-grid' ),
-                                    'default' => '1',
+                                    'default' => '0',
                                 ),
                                 array(
                                     'type' => 'toggle',

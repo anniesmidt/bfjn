@@ -34,7 +34,7 @@ class WPUPG_Assets {
     public function default_public_assets()
     {
         if( !is_admin() ) {
-            $base_layout = WPUltimatePostGrid::option( 'grid_template_force_style', '1' ) == '1' ? 'layout_base_forced.css' : 'layout_base.css';
+            $base_layout = WPUltimatePostGrid::option( 'grid_template_force_style', '0' ) == '1' ? 'layout_base_forced.css' : 'layout_base.css';
 
             $this->add(
                 array(
@@ -129,6 +129,13 @@ class WPUPG_Assets {
                 'deps' => array(
                     'jquery',
                 )
+            ),
+            array(
+                'file' => '/js/admin_post.js',
+                'admin' => true,
+                'deps' => array(
+                    'jquery',
+                ),
             ),
             array(
                 'file' => '/js/admin_form.js',

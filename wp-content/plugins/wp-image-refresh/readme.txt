@@ -4,7 +4,7 @@ Tags: image refresh, random image reload, image reload
 Donate link: http://cueblocks.com/
 Requires at least: 3.0
 Tested up to: 4.3
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,6 +33,7 @@ Features:
 5. A custom class can be set on the image. For e.g. [wp-image-refresh class="image-class"].
 6. The image can be wrapped into div or span and also can assign custom class, by default this is set to none. For e.g. [wp-image-refresh container="div" container_class="image-class"].
 7. Same as the above, the title can be wrapped into div or span and any custom class can be assigned to it. For e.g. [wp-image-refresh title_container="div" title_container_class="title-class"].
+8. Images can be wrapped with an anchor tag by adding a valid URL with every image.
 
 Why Use The WP Image Refresh Plug In?
 
@@ -71,6 +72,9 @@ Shortcode can be added in a sidebar using Apperance -> Widgets -> Text. By selec
 2. This is the screen shot of adding slides
 
 == Changelog ==
+= 1.3 =
+* Added new option to wrap the image with an anchor tag by adding a valid URL with every image.
+
 = 1.2 =
 * Added custom options such as show/hide image title, image size, custom class, container.
 
