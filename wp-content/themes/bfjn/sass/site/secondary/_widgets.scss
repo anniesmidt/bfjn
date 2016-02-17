@@ -11,3 +11,30 @@
 .widget_search .search-submit {
 	display: none;
 }
+
+
+
+/*sidebar anchor links widget*/
+/*idbal16 applies to instances on all pages even though it came with strange name*/
+#idbal16.widget.mwm_aalLoader_widget {
+  border: 1px $blue solid;
+  border-radius: 15px;
+  float: left;
+}
+ 
+.mwm-aal-sidebar-container h2 {
+  display: none;
+}
+
+.mwm-aal-sidebar-container ul, .mwm-aal-sidebar-container ul a, .mwm-aal-sidebar-container ul a:visited {
+  list-style: none;
+  color: $blue;
+  font-family: $qu;
+  font-size: 22px;
+  margin: 0;
+  padding: 15px;
+}
+
+.mwm-aal-sidebar-container ul a:hover {
+  color: $orange;
+}

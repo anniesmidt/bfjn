@@ -165,13 +165,15 @@ a .wpupg-post-title  {
   }
   
   
-  
-//calendar section on act and org list on give
-.month-holder, .non-profit-holder  {
+/////////////////////////////////////////////////  
+//calendar section on act and org list on give///
+/////////////////////////////////////////////////
+.each-month, .non-profit-holder  {
   background: white;
   border-radius: 15px;
   margin: 0 10%;
-  padding: 0 10px;
+  padding: 0 0 20px 5px;
+
 }
 
 h2.calendar-month, h2.organization-type {
@@ -187,7 +189,8 @@ h3.event-date {
   font-family: $treb;
   font-size: em(18);
   font-weight: bold;
-  margin: 0 0 0 10px;
+  margin: 10px 0 0 10px;
+  color: $grey;
 }
 
 p.event-name, 
@@ -196,6 +199,8 @@ p.organization-name,
 p.organization-description {
   font-weight: normal;
   margin: 0 0 0 10px;
+  color: $grey;
+
 }
 
 p.organization-name a, p.organization-name a:visited {
@@ -207,20 +212,29 @@ p.organization-name a:hover, p.organization-name a:active {
   color: $orange;
 }
 
-p.event-description, p.organization-description {
+.calendar-button-area {
+  padding-bottom: 10px;
   border-bottom: 1px $grey dashed;
-  padding-bottom: 15px;
-  margin-bottom: 15px;
+}
+
+.each-event {
+  margin: 0 15px;
+  
+
 }
 
 
 
-p.event-description:last-child,
-p.organization-description:last-child {
-  border-bottom: none;
+p.event-description {
+  margin-bottom: 10px;
 }
 
-p.event-description button {
+.learn-more-button, .sign-up-button {
+  display: inline;
+}
+
+
+.learn-more-button a, .sign-up-button a{
   border: none;
   box-shadow: none;
   text-shadow: none;
@@ -228,9 +242,24 @@ p.event-description button {
   border-radius: 5px;
   font-family: $rob;
   line-height: 0;
-  padding: 18px 10px;
-  font-size: em(16);
-  margin-top: 10px; 
+  padding: 8px;
+  font-size: em(14);
+  letter-spacing: .05em;
+  margin: 10px 10px 20px 0;
+  background-color: $brown;
+}
+
+.sign-up-button a {
+  background-color: $ltgreen;
+}
+
+
+.learn-more-button a:hover {
+    background-color: lighten($brown, 20%);
+}
+
+.sign-up-button a:hover {
+    background-color: lighten($ltgreen, 20%);
 }
 
 p.event-description button.calendar-sign-up {

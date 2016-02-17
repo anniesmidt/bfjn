@@ -128,7 +128,7 @@ function bfjn_post_type_1() {
 add_action( 'init', 'bfjn_post_type_1' );
 
 
-/* add Calendar Event post type*/
+/* add Calendar Event post type
 function bfjn_post_type_2() {
     $args = array(
       'public' => true,
@@ -137,7 +137,7 @@ function bfjn_post_type_2() {
     register_post_type( 'calendar_event', $args );
 }
 add_action( 'init', 'bfjn_post_type_2' );
-
+*/
 
 /* add Vetted Organizations post type*/
 function bfjn_post_type_3() {
@@ -151,6 +151,12 @@ add_action( 'init', 'bfjn_post_type_3' );
 
 
 
+/*Modify read more text on blog excerpts*/
+function new_excerpt_more($more) {
+       global $post;
+	return '<a class="moretag" href="'. get_permalink($post->ID) . '"> continue reading &raquo;</a>';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
 
 
 
@@ -160,9 +166,10 @@ add_action( 'init', 'bfjn_post_type_3' );
 
 /**
  * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
+* @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+*/
+
+
 function bfjn_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'bfjn' ),
@@ -177,7 +184,11 @@ function bfjn_widgets_init() {
 add_action( 'widgets_init', 'bfjn_widgets_init' );
 
 
+/* enable featured images */
+add_theme_support( 'post-thumbnails' ); 
 
+/*set thumbnail size and cropping*/
+set_post_thumbnail_size( 350, 250, array( 'center', 'center')  ); // 800 pixels wide by 250 pixels tall, crop from the center
 
 
 /**

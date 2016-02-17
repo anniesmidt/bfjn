@@ -25,14 +25,16 @@ function bfjn_posted_on() {
 	);
 
 	$posted_on = sprintf(
-		esc_html_x( 'Posted on %s', 'post date', 'bfjn' ),
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+		esc_html_x( '%s', 'post date', 'bfjn' ),
+		'' . $time_string
 	);
 
+/*
 	$byline = sprintf(
 		esc_html_x( 'by %s', 'post author', 'bfjn' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
+*/
 
 	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
 
@@ -49,31 +51,45 @@ function bfjn_entry_footer() {
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'bfjn' ) );
 		if ( $categories_list && bfjn_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'bfjn' ) . '</span>', $categories_list ); // WPCS: XSS OK.
-		}
+			printf( '<span class="cat-links">' . esc_html__( 'Category: %1$s', 'bfjn' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+					}
+		
 
+
+//REMOVE TAGS
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'bfjn' ) );
+		/*
+$tags_list = get_the_tag_list( '', esc_html__( ', ', 'bfjn' ) );
 		if ( $tags_list ) {
 			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'bfjn' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 		}
+*/
 	}
 
+//REMOVE "LEAVE A COMMENT" SECTION ON MAIN BLOG PAGE
+/*
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '<span class="comments-link">';
 		comments_popup_link( esc_html__( 'Leave a comment', 'bfjn' ), esc_html__( '1 Comment', 'bfjn' ), esc_html__( '% Comments', 'bfjn' ) );
 		echo '</span>';
 	}
+*/
 
+/*
+
+//REMOVE EDIT POST LINK
 	edit_post_link(
 		sprintf(
+*/
 			/* translators: %s: Name of current post */
+/*
 			esc_html__( 'Edit %s', 'bfjn' ),
 			the_title( '<span class="screen-reader-text">"', '"</span>', false )
 		),
 		'<span class="edit-link">',
 		'</span>'
 	);
+*/
 }
 endif;
 

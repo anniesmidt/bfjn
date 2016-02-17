@@ -1,0 +1,43 @@
+//style featured images on blog posts
+.wp-post-image {
+  border-radius: 15px;
+  border: 4px rgba(138,130,130,0.29) solid;
+  margin-top: 50px;
+}
+
+
+.entry-footer {
+  background: none;
+  justify-content: flex-start;
+  text-transform: uppercase;
+  color: $grey;
+  font-size: em(14);
+  border-bottom: 1pt $grey dashed;
+}
+
+.cat-links a, .cat-links a:visited {
+  color: $grey;
+}
+
+.cat-links a:hover {
+  opacity: .5;
+
+}
+
+
+.nav-previous, .nav-next {
+  text-transform: uppercase;
+  font-variant: bold;
+  font-size: em(14);
+  font-family: $qu;
+}
+
+
+.nav-previous a:hover, .nav-next a:hover {
+  opacity: .5;
+}
+
+
+
+
+

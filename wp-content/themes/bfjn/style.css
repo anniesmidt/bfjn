@@ -320,6 +320,14 @@ h4 {
 hr {
   border-bottom: 1px #808080 dotted; }
 
+.post .entry-title, .post .entry-title a, .post .entry-title a:visited {
+  color: #00A79B;
+  margin-bottom: 0;
+  margin-top: 0; }
+
+.post .entry-title a:hover {
+  color: #FF911E; }
+
 p {
   margin-bottom: 1.5em;
   color: #808080;
@@ -360,6 +368,19 @@ mark, ins {
 
 big {
   font-size: 125%; }
+
+a.moretag, a.moretag:visited {
+  color: #FF911E;
+  padding: 0 2px; }
+
+a.moretag:hover {
+  color: #808080; }
+
+.posted-on {
+  color: #808080; }
+
+.blog p {
+  margin-top: 0; }
 
 /*--------------------------------------------------------------
 # Elements
@@ -505,6 +526,35 @@ input[type="search"] {
 textarea {
   padding-left: 3px;
   width: 100%; }
+
+.ccf-form-wrapper .field label.main-label {
+  color: #808080; }
+
+.ccf-form-wrapper .field input[type=text], .ccf-form-wrapper .field textarea {
+  line-height: 30px;
+  border-radius: 7px;
+  border: 1px #B0CE69 solid; }
+
+input.btn.btn-primary.ccf-submit-button {
+  border: none;
+  color: white;
+  background: #978475;
+  border-radius: 10px;
+  font-size: 22px;
+  width: auto;
+  height: auto;
+  padding: 26px;
+  line-height: 0;
+  font-family: "Roboto Slab", serif;
+  font-weight: normal;
+  letter-spacing: .1em;
+  text-shadow: none;
+  box-shadow: none;
+  float: right;
+  margin-bottom: 20px; }
+
+input.btn.btn-primary.ccf-submit-button:hover {
+  background-color: #c3b8af; }
 
 /*--------------------------------------------------------------
 # Navigation
@@ -685,12 +735,38 @@ a {
 .widget_search .search-submit {
   display: none; }
 
+/*sidebar anchor links widget*/
+/*idbal16 applies to instances on all pages even though it came with strange name*/
+#idbal16.widget.mwm_aalLoader_widget {
+  border: 1px #00A79B solid;
+  border-radius: 15px;
+  float: left; }
+
+.mwm-aal-sidebar-container h2 {
+  display: none; }
+
+.mwm-aal-sidebar-container ul, .mwm-aal-sidebar-container ul a, .mwm-aal-sidebar-container ul a:visited {
+  list-style: none;
+  color: #00A79B;
+  font-family: "Quicksand", sans-serif;
+  font-size: 22px;
+  margin: 0;
+  padding: 15px; }
+
+.mwm-aal-sidebar-container ul a:hover {
+  color: #FF911E; }
+
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
+.blog #primary.content-area {
+  float: left;
+  margin: 0 10%;
+  width: 60%; }
+
 .sticky {
   display: block; }
 
@@ -782,6 +858,37 @@ a {
 
 #idbal16 {
   border: 1px #00A79B solid; }
+
+/*--------------------------------------------------------------
+## blog
+--------------------------------------------------------------*/
+.wp-post-image {
+  border-radius: 15px;
+  border: 4px rgba(138, 130, 130, 0.29) solid;
+  margin-top: 50px; }
+
+.entry-footer {
+  background: none;
+  justify-content: flex-start;
+  text-transform: uppercase;
+  color: #808080;
+  font-size: 0.875em;
+  border-bottom: 1pt #808080 dashed; }
+
+.cat-links a, .cat-links a:visited {
+  color: #808080; }
+
+.cat-links a:hover {
+  opacity: .5; }
+
+.nav-previous, .nav-next {
+  text-transform: uppercase;
+  font-variant: bold;
+  font-size: 0.875em;
+  font-family: "Quicksand", sans-serif; }
+
+.nav-previous a:hover, .nav-next a:hover {
+  opacity: .5; }
 
 /*--------------------------------------------------------------
 ## Home
@@ -1101,11 +1208,11 @@ a .wpupg-post-title {
 .act-button4 a:visited {
   color: #FF911E; }
 
-.month-holder, .non-profit-holder {
+.each-month, .non-profit-holder {
   background: white;
   border-radius: 15px;
   margin: 0 10%;
-  padding: 0 10px; }
+  padding: 0 0 20px 5px; }
 
 h2.calendar-month, h2.organization-type {
   color: #FF911E;
@@ -1119,14 +1226,16 @@ h3.event-date {
   font-family: "Trebuchet MS", sans-serif;
   font-size: 1.125em;
   font-weight: bold;
-  margin: 0 0 0 10px; }
+  margin: 10px 0 0 10px;
+  color: #808080; }
 
 p.event-name,
 p.event-description,
 p.organization-name,
 p.organization-description {
   font-weight: normal;
-  margin: 0 0 0 10px; }
+  margin: 0 0 0 10px;
+  color: #808080; }
 
 p.organization-name a, p.organization-name a:visited {
   color: #00A79B;
@@ -1135,16 +1244,20 @@ p.organization-name a, p.organization-name a:visited {
 p.organization-name a:hover, p.organization-name a:active {
   color: #FF911E; }
 
-p.event-description, p.organization-description {
-  border-bottom: 1px #808080 dashed;
-  padding-bottom: 15px;
-  margin-bottom: 15px; }
+.calendar-button-area {
+  padding-bottom: 10px;
+  border-bottom: 1px #808080 dashed; }
 
-p.event-description:last-child,
-p.organization-description:last-child {
-  border-bottom: none; }
+.each-event {
+  margin: 0 15px; }
 
-p.event-description button {
+p.event-description {
+  margin-bottom: 10px; }
+
+.learn-more-button, .sign-up-button {
+  display: inline; }
+
+.learn-more-button a, .sign-up-button a {
   border: none;
   box-shadow: none;
   text-shadow: none;
@@ -1152,9 +1265,20 @@ p.event-description button {
   border-radius: 5px;
   font-family: "Roboto Slab", serif;
   line-height: 0;
-  padding: 18px 10px;
-  font-size: 1em;
-  margin-top: 10px; }
+  padding: 8px;
+  font-size: 0.875em;
+  letter-spacing: .05em;
+  margin: 10px 10px 20px 0;
+  background-color: #978475; }
+
+.sign-up-button a {
+  background-color: #B0CE69; }
+
+.learn-more-button a:hover {
+  background-color: #c3b8af; }
+
+.sign-up-button a:hover {
+  background-color: #d8e7b6; }
 
 p.event-description button.calendar-sign-up {
   background: #B0CE69;

@@ -45,3 +45,23 @@ mark, ins {
 big {
 	font-size: 125%;
 }
+
+//blog styles
+a.moretag, a.moretag:visited {
+  color: $orange;
+  padding: 0 2px;
+}
+
+a.moretag:hover {
+  color: $grey;
+}
+
+.posted-on {
+  color: $grey;
+}
+
+.blog p {
+  margin-top: 0;
+}
+
+

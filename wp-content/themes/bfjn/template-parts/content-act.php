@@ -31,7 +31,6 @@ ethically</button>
 		
   <h1 class="special2">Events Calendar &raquo; Get involved.</h1>
 		
-<section class="month-holder">		
 
 <?php
 
@@ -40,18 +39,71 @@ if( have_rows('month_block') ):
 
  	// loop through the rows of data
     while ( have_rows('month_block') ) : the_row();
-
+    ?>
+    <div class="each-month">
+    <?
         // display a sub field value
+        ?>
+        <h2 class="calendar-month">
+        <?php
         the_sub_field('month_and_year');
+        ?>
+        </h2>
+        
+        
+       
+        <?
         while ( have_rows('event_info') ) : the_row();
             ?>
-            <div class="event-styles">
+            <div class="each-event">
+            
+            <h3 class="event-date">
             <?php 
             the_sub_field('date');
+            ?>
+            </br>
+            </h3>
+            
+            <p class="event-name">
+            <?php
             the_sub_field('name');
             ?>
-            </div>
+            </p>
+            
+            <p class="event-description">
             <?php
+            the_sub_field('description');
+            ?>
+            </p>
+            
+            
+        
+            <div class="calendar-button-area">
+            
+            <?php
+            if (get_sub_field('learn_more_button')) {
+              ?> <div class="learn-more-button">
+
+              <a href="<?php the_sub_field('learn_more_url');?>" class="button">Learn more</a>
+              </div>
+            <?
+            }
+            ?>
+           
+            
+            <?php
+            if (get_sub_field('sign_up_button')) {
+              ?> <div class="sign-up-button">
+
+              <a href="<?php the_sub_field('sign_up_url');?>" class="button">Sign up</a>
+              </div>
+            <?
+            }
+            ?>
+          
+            </div><!--end calendar button area-->         
+        
+          </div><!--each event--><?
 
         endwhile;
 
@@ -59,7 +111,8 @@ if( have_rows('month_block') ):
 
 else :
 
-    // no rows found
+// no rows found
+      ?></div><!--each month--><?
 
 endif;
 
@@ -73,10 +126,8 @@ endif;
 
 
 
-
  
 		
-</section>
 
 
 		
@@ -96,4 +147,9 @@ endif;
 	<footer class="entry-footer">
 		</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
+
+
+
+
+
 

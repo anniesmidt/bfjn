@@ -25,3 +25,40 @@ textarea {
 	padding-left: 3px;
 	width: 100%;
 }
+
+
+//contact form generated with contact form plugin
+.ccf-form-wrapper .field label.main-label {
+  color: $grey;
+}
+
+.ccf-form-wrapper .field input[type=text], .ccf-form-wrapper .field textarea {
+  line-height: 30px;
+  border-radius: 7px;
+  border: 1px $ltgreen solid;
+}
+
+input.btn.btn-primary.ccf-submit-button{
+  border: none;
+  color: white;
+  background: #978475;
+  border-radius: 10px;
+  font-size: 22px;
+  width: auto;
+  height: auto;
+  padding: 26px;
+  line-height: 0;
+  font-family: "Roboto Slab", serif;
+  font-weight: normal;
+  letter-spacing: .1em;
+  text-shadow: none;
+  box-shadow: none;
+  float: right;
+  margin-bottom: 20px;
+}
+
+input.btn.btn-primary.ccf-submit-button:hover {
+  background-color: lighten($brown, 20%);
+}
+
+
