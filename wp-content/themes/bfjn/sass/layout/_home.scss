@@ -9,7 +9,7 @@
 }
 
 .page-id-2 .entry-content {
-    margin-top: -142px;
+    margin-top: -155px;
     position: relative;
     z-index: -1;   
   }
@@ -26,7 +26,7 @@
 
 #CTA {
   position: relative;
-  top: -525px;
+  top: -270px;
   left: 500px;
 }
    
@@ -83,8 +83,8 @@
 #home-offer {
   background-color: $blue;
   padding-top: 10px;
-  overflow: auto;
   min-height: 200px;
+  float: left;
 }
 
 
@@ -186,42 +186,46 @@ h1.home-offer-title {
 
 
 
-//Case study
+//////////////ACTION MODEL AREA////////////////
 
-#home-case-study {
-  display: flex;
-  flex-direction: column;
-  height: auto;
+#action-model {
+  text-align: center;
 }
 
-.case-study-title, .case-study-diagram, #home-case-study p {
-  margin: auto;
-}
-
-
-.case-study-title {
-  color: $blue;
+h2.home-action-model-title {
+  padding-top: 1em;
   font-family: $rob;
-  font-size: em(36);
-  margin-top: em(30);
-  margin-bottom: em(5);
+  font-weight: bold;
 }
 
-.case-study-diagram {
-  padding-bottom: em(32);
+button.action-model-button {
+  color: white;
+  background: $brown;
+  border-radius: 10px;
+  font-size: 22px;
+  width: auto;
+  height: auto;
+  padding: 26px;
+  line-height: 0;
+  font-family: $rob;
+  font-weight: normal;
+  letter-spacing: .1em;
+  text-shadow: none;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 30px;
+}
+
+button.action-model-button:hover {
+  background-color: lighten($brown, 20%);
 }
 
 
-#home-case-study p {
-  width: 75%;
-  font-family: $treb;
-  font-size: em(20);
-  line-height: em(34);
-  padding-bottom: em(36);
-}
 
 
-//about BFJN section
+
+
+//////////////ABOUT BFJN////////////////
 #home-about-bfjn {
   background: $ltgreen;
   display: flex;
@@ -241,6 +245,7 @@ h1.home-offer-title {
 .home-about-text {
   width: 675px;
   margin-top: em(70);
+  margin-bottom: em(70);
 
   
 }
@@ -261,7 +266,27 @@ h1.home-offer-title {
 
 
 
+button.about-learn-more-button {
+  color: white;
+  background: $brown;
+  border-radius: 10px;
+  font-size: 22px;
+  width: auto;
+  height: auto;
+  padding: 26px;
+  line-height: 0;
+  font-family: $rob;
+  font-weight: normal;
+  letter-spacing: .1em;
+  text-shadow: none;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 30px;
+}
 
+button.about-learn-more-button:hover {
+  background-color: lighten($brown, 20%);
+}
 
 
 

@@ -18,14 +18,20 @@
 
   <div class="big-text-container"><!-- flex parent -->
   	<div class="entry-content big-text">	
-		<?php the_content(); ?>
-	<button class="vet-button brown-button">learn how to vet non-profits</button>	
+		<?php the_field('big_giving_quote'); ?>
+<!-- 	<button class="vet-button brown-button">learn how to vet non-profits</button>	 -->
  	</div>	
   </div>
 
+
+<div class="non-profit-holder non-profit-holder-text">
+  <?php the_field('transformative_giving_text'); ?>
+</div>
+
+<!--
   <h1 class="special2">Places to Give &raquo; Vetted by BFJN.</h1>
 		<section class="non-profit-holder">
-		
+
 <?php
 $posts = get_posts(array(
 	'numberposts' => -1,
@@ -54,6 +60,7 @@ if($posts)
 		
 		</section>
 
+-->
 		
 		
 		<?php

@@ -7,13 +7,13 @@
 
 get_header(); ?>
 
-
+<div id ="home-specific">
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php get_template_part( 'template-parts/content', 'page' ); ?>
+				<?php get_template_part( 'template-parts/content', 'home' ); ?>
 
 				<?php
 					// If comments are open or we have at least one comment, load up the comment template.
@@ -35,7 +35,7 @@ get_header(); ?>
 
 <section id="home-offer">
 
-    <h1 class="home-offer-title"><?php the_field('home_offer_title'); ?></h1>
+    <h1 class="home-offer-title" a name="LATG-download-offer"><?php the_field('home_offer_title'); ?></h1>
     
     
     
@@ -77,17 +77,16 @@ get_header(); ?>
 
 
 <!-- Case Study Section -->
-<section id="home-case-study">
-  <div class="case-study-title">Case Study: Lorem ipsum dolor sit amet
-  </div>
-  <figure class="case-study-diagram"><img src="http://localhost/bfjn/wp-content/uploads/2015/10/diagram-fpo.jpg"></figure>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</section><!-- end home case study-->
 
+<section id="action-model">  
+      <h2 class="home-action-model-title">The BFJN Action Model</h2>
+      <img src="http://localhost/bfjn/wp-content/uploads/2015/10/actionmodel.png">
+      <br>
+       <a href=" http://localhost/bfjn/learn_tiles/the-model-for-action/"><button class="action-model-button">learn more</button></a>
+      
+</section>
 
-
-
+ 
 <!-- About BFJN Section -->
 <section id="home-about-bfjn">
   
@@ -95,16 +94,15 @@ get_header(); ?>
   
   <div class="home-about-text">
     <div class="home-about-title">About BFJN</div>
-    <p>We’re a gathering of Christians from many different traditions sharing a common concern to love our neighbors through economic discipleship: following Jesus with our money.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>The Boston Faith & Justice Network brings Christians from many traditions together to move from personal religious commitment to transformative action against poverty and oppression. We foster a dialogue about money and responsibility while presenting opportunities for practical lifestyle shifts and justice-oriented engagement. Economic discipleship—following Jesus with our money—is one of the foundations of our vision for Christ-centered just living.</p>
+
+<a href=" http://localhost/bfjn/about/"><button class="about-learn-more-button">learn more</button></a>
+
   </div>
 
 </section>
 
 
-
-
-
-
+</div><!--home specific-->
 
 <?php get_footer(); ?>

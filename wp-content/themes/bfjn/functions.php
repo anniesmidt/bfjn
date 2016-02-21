@@ -128,28 +128,6 @@ function bfjn_post_type_1() {
 add_action( 'init', 'bfjn_post_type_1' );
 
 
-/* add Calendar Event post type
-function bfjn_post_type_2() {
-    $args = array(
-      'public' => true,
-      'label'  => 'Calendar event'
-    );
-    register_post_type( 'calendar_event', $args );
-}
-add_action( 'init', 'bfjn_post_type_2' );
-*/
-
-/* add Vetted Organizations post type*/
-function bfjn_post_type_3() {
-    $args = array(
-      'public' => true,
-      'label'  => 'Organizations'
-    );
-    register_post_type( 'organizations', $args );
-}
-add_action( 'init', 'bfjn_post_type_3' );
-
-
 
 /*Modify read more text on blog excerpts*/
 function new_excerpt_more($more) {
@@ -165,7 +143,7 @@ add_filter('excerpt_more', 'new_excerpt_more');
 
 
 /**
- * Register widget area.
+ * Register widget areas.
 * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
 */
 
@@ -178,10 +156,48 @@ function bfjn_widgets_init() {
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
+		'after_title'   => '</h2>'
 	) );
 }
 add_action( 'widgets_init', 'bfjn_widgets_init' );
+
+
+
+//add widget area for blog and single
+function bfjn_widgets_init2() {
+	register_sidebar( array(
+		'name'          => esc_html__( 'Blog Sidebar', 'bfjn' ),
+		'id'            => 'sidebar-blog',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>'
+	) );
+}
+add_action( 'widgets_init', 'bfjn_widgets_init2' );
+
+
+//add widget area for learn articles (single)
+function bfjn_widgets_init3() {
+	register_sidebar( array(
+		'name'          => esc_html__( 'Learn Articles Sidebar', 'bfjn' ),
+		'id'            => 'sidebar-articles',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>'
+	) );
+}
+add_action( 'widgets_init', 'bfjn_widgets_init3' );
+
+
+
+
+
+
+
 
 
 /* enable featured images */

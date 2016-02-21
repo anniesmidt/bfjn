@@ -3,6 +3,8 @@
   background-repeat: repeat;
   height: 160px;
   margin-top: -147px;
+  z-index: 0;
+  position: relative;
 }
 
 
@@ -86,6 +88,7 @@ a .wpupg-post-title  {
   display: flex;
   -webkit-justify-content: space-around; /* Safari */
   justify-content: space-around;
+  flex-direction: row;
   margin: 0 5%;
 }
 
@@ -98,26 +101,30 @@ a .wpupg-post-title  {
   font-size: 25px;
 }
 
+
 .act-button1  {
   color: $green;
   border: 5px $green solid;
 }
 
-  
     
 .act-button1 a:visited {
     color: $green;
   }
   
 .act-button1:hover {
-    background: $green;
     color: white;
+    background: $green;
   }
-
 
 .act-button1 a:hover { 
     color: white;
     }
+
+
+
+
+
 
 
 .act-button2 {
@@ -219,11 +226,11 @@ p.organization-name a:hover, p.organization-name a:active {
 
 .each-event {
   margin: 0 15px;
-  
-
 }
 
-
+.page-id-8 .entry-footer {
+  border-bottom: none;
+}
 
 p.event-description {
   margin-bottom: 10px;
@@ -294,3 +301,13 @@ p.event-description button.calendar-sign-up {
 .vet-button {
   float: right;
 }
+
+.non-profit-holder-text {
+  margin: 5% 15%;
+  padding: .5% 5%;
+}
+
+.non-profit-holder-text ul li {
+  margin-bottom: 0;
+}
+

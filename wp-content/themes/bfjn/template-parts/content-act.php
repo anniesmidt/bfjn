@@ -19,16 +19,27 @@
 	<div class="entry-content">
 		
 		<section id="act-buttons-area">
-      <button href="#" class="act-buttons act-button1">get educated</button>
-      <button href="#" class="act-buttons act-button2">give
-meaningfully</button>		
-      <button href="#" class="act-buttons act-button3">join with 
+            
+        <a href="http://localhost/bfjn/learn_tiles/lazarus-at-the-gate-workshops/" class="button-text">
+          <button class="act-buttons act-button1">learn more</button>
+        </a>
+      
+        <a href="http://localhost/bfjn/give/" class="button-text">
+          <button class="act-buttons act-button2">give
+meaningfully</button>
+        </a>
+      
+        <a href="http://localhost/bfjn/give/#LATG-download-offer" class="button-text">
+          <button class="act-buttons act-button3">join with 
 others</button>
-      <button href="#" class="act-buttons act-button4">buy 
-ethically</button>
+        </a>
+      
+      <a href="http://localhost/bfjn/learn_tiles/buying-justly-and-ethical-consumption/" class="button-text">
+          <button class="act-buttons act-button4">buy ethically</button>
+      </a>
+          
 		</section>
-		
-		
+     		
   <h1 class="special2">Events Calendar &raquo; Get involved.</h1>
 		
 
@@ -38,76 +49,46 @@ ethically</button>
 if( have_rows('month_block') ):
 
  	// loop through the rows of data
-    while ( have_rows('month_block') ) : the_row();
-    ?>
-    <div class="each-month">
-    <?
-        // display a sub field value
-        ?>
+    while ( have_rows('month_block') ) : the_row(); ?>
+      <div class="each-month">
         <h2 class="calendar-month">
-        <?php
-        the_sub_field('month_and_year');
-        ?>
+          <?php the_sub_field('month_and_year'); ?>
         </h2>
-        
-        
-       
-        <?
-        while ( have_rows('event_info') ) : the_row();
-            ?>
-            <div class="each-event">
-            
+
+        <?php while ( have_rows('event_info') ) : the_row(); ?>
+          <div class="each-event">
             <h3 class="event-date">
-            <?php 
-            the_sub_field('date');
-            ?>
-            </br>
+              <?php the_sub_field('date'); ?>
+              </br>
             </h3>
-            
+
             <p class="event-name">
-            <?php
-            the_sub_field('name');
-            ?>
+              <?php the_sub_field('name'); ?>
             </p>
-            
+
             <p class="event-description">
-            <?php
-            the_sub_field('description');
-            ?>
+              <?php the_sub_field('description'); ?>
             </p>
-            
-            
-        
+
             <div class="calendar-button-area">
-            
-            <?php
-            if (get_sub_field('learn_more_button')) {
-              ?> <div class="learn-more-button">
+              <?php if (get_sub_field('learn_more_button')) { ?>
+                <div class="learn-more-button">
+                  <a href="<?php the_sub_field('learn_more_url');?>" class="button">Learn more</a>
+                </div>
+                <?php } ?>
 
-              <a href="<?php the_sub_field('learn_more_url');?>" class="button">Learn more</a>
-              </div>
-            <?
-            }
-            ?>
-           
-            
-            <?php
-            if (get_sub_field('sign_up_button')) {
-              ?> <div class="sign-up-button">
+                <?php if (get_sub_field('sign_up_button')) { ?>
+                  <div class="sign-up-button">
+                    <a href="<?php the_sub_field('sign_up_url');?>" class="button">Sign up</a>
+                  </div>
+                <?php } ?>
+            </div>
+          </div><!--each event-->
 
-              <a href="<?php the_sub_field('sign_up_url');?>" class="button">Sign up</a>
-              </div>
-            <?
-            }
-            ?>
-          
-            </div><!--end calendar button area-->         
-        
-          </div><!--each event--><?
+        <? endwhile; ?>
+      </div> <!-- each month -->
 
-        endwhile;
-
-    endwhile;
+    <? endwhile;
 
 else :
 
@@ -116,7 +97,7 @@ else :
 
 endif;
 
-?>
+?>  
 
 
 

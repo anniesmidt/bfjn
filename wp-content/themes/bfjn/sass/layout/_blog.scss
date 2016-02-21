@@ -1,3 +1,24 @@
+.blog #primary.content-area, .site-main.blog-single, .archive #primary.content-area,  {
+  float: none;
+  margin: 0 0 0 10%;
+  width: 60%;
+  display: inline-block;
+}
+
+.archive h1.page-title {
+  margin-left: 0;
+  margin-bottom: 0;
+}
+
+
+h2.widget-title {
+  margin-top: 1.5em;
+}
+
+
+
+
+
 //style featured images on blog posts
 .wp-post-image {
   border-radius: 15px;
@@ -37,7 +58,61 @@
   opacity: .5;
 }
 
+//single
+
+h1.entry-title.single {
+  font-size: 35px;
+  margin: 50px 0 0 0;
+
+}
+
+.site-main.blog-single {
+  margin-left: 10%;
+  width: 60%;
+}
+
+blockquote p{
+  color: $green;
+  font-weight: bold;
+}
+
+
+//categories widget
+#categories-2.widget.widget_categories ul{
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 2px;
+  
+}
 
 
 
+
+//learn tiles singles
+.single.single-learn_tiles .site-main {
+   width: 60%;
+    margin-left: 10%;
+}
+
+.back-to-articles-button {
+  color: white;
+  background: $brown;
+  border-radius: 10px;
+  font-size: 18px;
+  width: auto;
+  height: auto;
+  padding: 26px;
+  line-height: 0;
+  font-family: $rob;
+  font-weight: normal;
+  letter-spacing: .1em;
+  text-shadow: none;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 30px;
+}
+
+.back-to-articles-button:hover {
+background-color: lighten($brown, 20%);
+}
 

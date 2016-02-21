@@ -1,6 +1,6 @@
 .main-navigation {
 	font-family: $qu;
-	font-size: em(22);
+	font-size: em(18);
 	border-bottom: 1px $green solid;
 	padding-bottom: em(30);
 
@@ -75,7 +75,17 @@
 }
 
 
+#menu-item-42 a, #menu-item-42 a:visited {
+  background-color: $orange;
+  border-radius: 10px;
+  color: white;
+  padding: 1px 6px;
+  margin-top: -2px;
+}
 
+#menu-item-42 a:hover {
+  opacity: .5;
+}
 
 
 

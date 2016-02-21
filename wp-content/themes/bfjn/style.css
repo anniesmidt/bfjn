@@ -328,7 +328,10 @@ hr {
 .post .entry-title a:hover {
   color: #FF911E; }
 
-p {
+.single h3 {
+  color: #00A79B; }
+
+p, li {
   margin-bottom: 1.5em;
   color: #808080;
   font-size: 1.125em; }
@@ -578,7 +581,7 @@ a {
 --------------------------------------------------------------*/
 .main-navigation {
   font-family: "Quicksand", sans-serif;
-  font-size: 1.375em;
+  font-size: 1.125em;
   border-bottom: 1px #98C442 solid;
   padding-bottom: 1.875em; }
   .main-navigation ul {
@@ -618,6 +621,16 @@ a {
   .main-navigation .current-menu-item > a,
   .main-navigation .current_page_ancestor > a {
     color: #00A79B; }
+
+#menu-item-42 a, #menu-item-42 a:visited {
+  background-color: #FF911E;
+  border-radius: 10px;
+  color: white;
+  padding: 1px 6px;
+  margin-top: -2px; }
+
+#menu-item-42 a:hover {
+  opacity: .5; }
 
 /* Small menu. */
 .menu-toggle,
@@ -759,14 +772,34 @@ a {
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
+@font-face {
+  font-family: 'ElegantIcons';
+  src: url("fonts/ElegantIcons.eot");
+  src: url("fonts/ElegantIcons.eot?#iefix") format("embedded-opentype"), url("fonts/ElegantIcons.woff") format("woff"), url("fonts/ElegantIcons.ttf") format("truetype"), url("fonts/ElegantIcons.svg#ElegantIcons") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+  font-family: 'ElegantIcons';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
+/*
 .blog #primary.content-area {
   float: left;
   margin: 0 10%;
-  width: 60%; }
-
+  width: 60%;
+}
+*/
 .sticky {
   display: block; }
 
@@ -820,7 +853,9 @@ a {
   display: block;
   margin-right: 2.57751%;
   width: 16.07295%;
-  margin-left: 9%; }
+  margin-left: 9%;
+  z-index: 100;
+  position: relative; }
   .site-title img:last-child {
     margin-right: 0; }
 
@@ -859,9 +894,26 @@ a {
 #idbal16 {
   border: 1px #00A79B solid; }
 
+img.size-thumbnail.alignleft {
+  border-radius: 50%;
+  border: 4px solid #00A79B; }
+
 /*--------------------------------------------------------------
 ## blog
 --------------------------------------------------------------*/
+.blog #primary.content-area, .site-main.blog-single, .archive #primary.content-area {
+  float: none;
+  margin: 0 0 0 10%;
+  width: 60%;
+  display: inline-block; }
+
+.archive h1.page-title {
+  margin-left: 0;
+  margin-bottom: 0; }
+
+h2.widget-title {
+  margin-top: 1.5em; }
+
 .wp-post-image {
   border-radius: 15px;
   border: 4px rgba(138, 130, 130, 0.29) solid;
@@ -890,6 +942,47 @@ a {
 .nav-previous a:hover, .nav-next a:hover {
   opacity: .5; }
 
+h1.entry-title.single {
+  font-size: 35px;
+  margin: 50px 0 0 0; }
+
+.site-main.blog-single {
+  margin-left: 10%;
+  width: 60%; }
+
+blockquote p {
+  color: #98C442;
+  font-weight: bold; }
+
+#categories-2.widget.widget_categories ul {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 2px; }
+
+.single.single-learn_tiles .site-main {
+  width: 60%;
+  margin-left: 10%; }
+
+.back-to-articles-button {
+  color: white;
+  background: #978475;
+  border-radius: 10px;
+  font-size: 18px;
+  width: auto;
+  height: auto;
+  padding: 26px;
+  line-height: 0;
+  font-family: "Roboto Slab", serif;
+  font-weight: normal;
+  letter-spacing: .1em;
+  text-shadow: none;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 30px; }
+
+.back-to-articles-button:hover {
+  background-color: #c3b8af; }
+
 /*--------------------------------------------------------------
 ## Home
 --------------------------------------------------------------*/
@@ -900,7 +993,7 @@ a {
   margin-bottom: -221px; }
 
 .page-id-2 .entry-content {
-  margin-top: -142px;
+  margin-top: -155px;
   position: relative;
   z-index: -1; }
 
@@ -915,7 +1008,7 @@ a {
 
 #CTA {
   position: relative;
-  top: -525px;
+  top: -270px;
   left: 500px; }
 
 .page-id-2 button {
@@ -955,8 +1048,8 @@ a {
 #home-offer {
   background-color: #00A79B;
   padding-top: 10px;
-  overflow: auto;
-  min-height: 200px; }
+  min-height: 200px;
+  float: left; }
 
 h1.home-offer-title {
   display: inline-block;
@@ -1033,30 +1126,33 @@ h1.home-offer-title {
   line-height: 0px !important;
   float: right; }
 
-#home-case-study {
-  display: flex;
-  flex-direction: column;
-  height: auto; }
+#action-model {
+  text-align: center; }
 
-.case-study-title, .case-study-diagram, #home-case-study p {
-  margin: auto; }
-
-.case-study-title {
-  color: #00A79B;
+h2.home-action-model-title {
+  padding-top: 1em;
   font-family: "Roboto Slab", serif;
-  font-size: 2.25em;
-  margin-top: 1.875em;
-  margin-bottom: 0.3125em; }
+  font-weight: bold; }
 
-.case-study-diagram {
-  padding-bottom: 2em; }
+button.action-model-button {
+  color: white;
+  background: #978475;
+  border-radius: 10px;
+  font-size: 22px;
+  width: auto;
+  height: auto;
+  padding: 26px;
+  line-height: 0;
+  font-family: "Roboto Slab", serif;
+  font-weight: normal;
+  letter-spacing: .1em;
+  text-shadow: none;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 30px; }
 
-#home-case-study p {
-  width: 75%;
-  font-family: "Trebuchet MS", sans-serif;
-  font-size: 1.25em;
-  line-height: 2.125em;
-  padding-bottom: 2.25em; }
+button.action-model-button:hover {
+  background-color: #c3b8af; }
 
 #home-about-bfjn {
   background: #B0CE69;
@@ -1073,7 +1169,8 @@ h1.home-offer-title {
 
 .home-about-text {
   width: 675px;
-  margin-top: 4.375em; }
+  margin-top: 4.375em;
+  margin-bottom: 4.375em; }
 
 .home-about-title {
   color: white;
@@ -1086,6 +1183,26 @@ h1.home-offer-title {
   font-size: 1.25em;
   line-height: 2.125em; }
 
+button.about-learn-more-button {
+  color: white;
+  background: #978475;
+  border-radius: 10px;
+  font-size: 22px;
+  width: auto;
+  height: auto;
+  padding: 26px;
+  line-height: 0;
+  font-family: "Roboto Slab", serif;
+  font-weight: normal;
+  letter-spacing: .1em;
+  text-shadow: none;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 30px; }
+
+button.about-learn-more-button:hover {
+  background-color: #c3b8af; }
+
 /*--------------------------------------------------------------
 ## Learn Act and Give pages
 --------------------------------------------------------------*/
@@ -1093,7 +1210,9 @@ h1.home-offer-title {
   background-image: url(http://localhost/bfjn/wp-content/uploads/2015/10/dotpattern4.png);
   background-repeat: repeat;
   height: 160px;
-  margin-top: -147px; }
+  margin-top: -147px;
+  z-index: 0;
+  position: relative; }
 
 .pattern2 {
   background-image: url(http://localhost/bfjn/wp-content/uploads/2015/10/spotpattern.png);
@@ -1151,6 +1270,7 @@ a .wpupg-post-title {
   -webkit-justify-content: space-around;
   /* Safari */
   justify-content: space-around;
+  flex-direction: row;
   margin: 0 5%; }
 
 .act-buttons {
@@ -1169,8 +1289,8 @@ a .wpupg-post-title {
   color: #98C442; }
 
 .act-button1:hover {
-  background: #98C442;
-  color: white; }
+  color: white;
+  background: #98C442; }
 
 .act-button1 a:hover {
   color: white; }
@@ -1251,6 +1371,9 @@ p.organization-name a:hover, p.organization-name a:active {
 .each-event {
   margin: 0 15px; }
 
+.page-id-8 .entry-footer {
+  border-bottom: none; }
+
 p.event-description {
   margin-bottom: 10px; }
 
@@ -1303,6 +1426,13 @@ p.event-description button.calendar-sign-up {
 
 .vet-button {
   float: right; }
+
+.non-profit-holder-text {
+  margin: 5% 15%;
+  padding: .5% 5%; }
+
+.non-profit-holder-text ul li {
+  margin-bottom: 0; }
 
 /*--------------------------------------------------------------
 ## Footer
