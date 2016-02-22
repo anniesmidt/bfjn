@@ -1,6 +1,6 @@
 //////////////HERO AREA////////////////
 
-.page-id-2 h1 {
+.page-id-2 h1 {//page title "home"
   display: none;
 }
 
@@ -8,21 +8,46 @@
   margin-bottom: -221px;
 }
 
-.page-id-2 .entry-content {
-    margin-top: -155px;
+.page-id-2 .entry-content {//normal "entry-contents" are down further
+    margin-top: -159px;
     position: relative;
     z-index: -1;   
   }
-  
-.page-id-2 .entry-content p {
+
+
+.page-id-2 .entry-content p {//hero text
     color: white;
     font-family: $rob;
     font-size: em(50);
     position: absolute;
-    top: 100px;
+    top: 135px;
     left: 425px;
     z-index: 1;
+    margin: 0;
 }  
+
+@media (max-width: 1290px) {//hero text gets smaller
+  .page-id-2 .entry-content p {
+    font-size: em(40);
+    }
+}    
+
+@media (max-width: 1290px) {
+  .page-id-2 button {
+    display: none;
+  }
+
+}
+
+
+
+@media (max-width: 1115px) {//hero text gets smaller
+  .page-id-2 .entry-content p {
+    font-size: em(35);
+    }
+  
+}  
+
 
 #CTA {
   position: relative;

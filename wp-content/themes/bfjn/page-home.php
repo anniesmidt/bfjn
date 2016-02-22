@@ -21,6 +21,8 @@ get_header(); ?>
 						comments_template();
 					endif;
 				?>
+				
+			<div class="home-hero-photo"></div>	
 		
 			<div id="CTA">
 			<button type="button" class="learn-button"><a href="http://localhost/bfjn/learn/Learn">Learn</a></button>
